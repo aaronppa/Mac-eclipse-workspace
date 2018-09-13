@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration> <!-- Root Tag(루트태그): 하나만 존재해야함 -->
+
+	<!-- 설정파일에서 사용할 프로퍼티의 파일의 경로 지정: classpath -->
+	<properties resource="config/mybatis/db.properties"/>
+	
+	<!-- SQL의 결과를 담을 VO 객체들의 별칭을 설정하여 사용의 편의를 도모  -->
+	<typeAliases>
+		<typeAlias alias="Member" type="kr.co.mlec.domain.Member" />
+		<typeAlias alias="Search" type="kr.co.mlec.domain.Search" />
+		<typeAlias alias="Board" type="kr.co.mlec.domain.Board" />
+		<typeAlias alias="Account" type="kr.co.mlec.domain.Account" />
+		<typeAlias alias="Comment" type="kr.co.mlec.domain.Comment" />
+	</typeAliases>
+	
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!-- 
+		사용자가 직접 작성한 SQL 문장들이 들어있는 XML 파일의 위치를 알려준다. 
+ 			 - 먼저 mapper태그에 있는 파일들을 검수한다. 
+ 	-->
+ 	<mappers>
+		<mapper resource="config/sqlmap/Test1.xml"/>
+		<mapper resource="config/sqlmap/Test2.xml"/>
+		<mapper resource="config/sqlmap/Test3.xml"/>
+		<mapper resource="config/sqlmap/myTest.xml"/>
+		<mapper resource="config/sqlmap/myTest2.xml"/>
+	</mappers>
+</configuration>

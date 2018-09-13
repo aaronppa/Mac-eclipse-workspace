@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Member(id, name){
+            this.id = id
+            this.name = name
+        }
+
+        Member.msg = "전역..."
+        
+        Member.prototype.info = function(){
+            console.log("Member Prototype Info")
+        }
+        var m1 = new Member("choi","최원영")
+        
+        m1.info = function(){
+            console.log("m1 info")
+        }
+        
+        var m2 = new Member("park","박승혜")
+
+        m1.info() // "m1 info"
+        m2.info() // "Member Prototype Info"
+        
+
+        console.log(Member.msg)
+        console.log(Member)
+        console.dir(m1)
+    </script>
+</body>
+</html>

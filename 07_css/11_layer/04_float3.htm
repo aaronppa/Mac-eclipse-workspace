@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- 
+    float : 
+    - 특정 요소를 떠 있게 하는 것, absolute 와 같이 사용 안됨
+       떠 있기 위해서 다른 요소를 왼쪽 또는 오른쪽으로 이동시킨다.
+ -->
+<html>
+
+<head>
+    <title> float 변경 </title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        .container{
+            width: 740px; 
+            margin: auto;
+            background: grey;
+        }
+
+        .header, .footer{
+            width: 720px;
+            height: 100px;
+            margin: 5px;
+            border: 5px solid tomato;
+        }
+
+        .content{
+            width: 600px;
+            border: 5px solid blue;
+            min-height: 450px;
+            margin: 5px;
+            float: left;
+        }
+
+        .side{
+            width: 100px;
+            border: 5px solid blue;
+            min-height: 100px;
+            margin:5px;
+            float: right;
+        }
+
+        .footer{
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">1</div>
+        <div class="content">2</div>
+        <div class="side">3</div>
+        <div class="footer">4</div>
+    </div>
+</body>
+
+</html>

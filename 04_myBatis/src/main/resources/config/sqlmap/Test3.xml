@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.mlec.mapper.TestMapper3">
+
+	
+	<resultMap type="Account" id="accountMap">
+		<result column="open_date" property="openDate"/>
+	
+	</resultMap>
+	
+	
+	<select id="selectMemberList" resultMap="memberMap">
+		select * 
+		  from tb_mybatis_member
+		 order by id  	
+	</select>
+
+
+	<select id="selectAccountById" parameterType="string" resultMap="accountMap">
+		select *
+		  from tb_mybatis_account
+		 where id = #{id} 
+	</select>
+	
+	<resultMap type="Member" id="memberMap">
+		<result column="join_date" property="joinDate"/>
+<!-- ASSOCIATION -->
+		<association property="account"
+					 column="id"
+					 select="selectAccountById"/>
+	</resultMap>
+	
+	<select id="selectSeq" resultType="int">
+		select s_board_no.nextVal from dual
+	</select>
+	
+	<insert id="insertBoard1" parameterType="Board">
+		insert into tb_mybatis_board(
+			no, writer, title, content 
+		) values(
+			s_board_no.nextVal, #{writer}, #{title}, #{content}	
+		)
+	</insert>
+	
+	<!-- selectKey  활용 방식 이해 -->
+	<insert id="insertBoard2" parameterType="Board">
+		<selectKey keyProperty="no" resultType="int" order="BEFORE">
+			select s_board_no.nextVal from dual
+		</selectKey>
+		
+		insert into tb_mybatis_board(
+			no, writer, title, content 
+		) values(
+			#{no}, #{writer}, #{title}, #{content}	
+		)
+	</insert>
+		
+	<insert id="insertComment" parameterType="Comment">
+		insert into tb_mybatis_comment(
+			comment_no, no, writer, content 
+		) values(
+			s_mybatis_comment_no.nextVal, #{no}, #{writer}, #{content}	
+		)
+	</insert>
+	
+	<resultMap type="Board" id="boardMap">
+		<result column="reg_date" property="regDate"/>
+		<result column="view_cnt" property="viewCnt"/>
+		<collection property="commentList" 
+		            column = "no"
+		            select="selectCommentList"
+		            />
+	</resultMap>
+	
+	<resultMap type="Comment" id="commentMap">
+		<result column="comment_no" property="commentNo"/>
+		<result column="reg_date" property="regDate"/>
+	</resultMap>
+	
+	<!-- Collection 활용 방식 이해 -->
+	<!-- 게시물 목록 -->
+	<select id="selectBoardList" resultMap="boardMap">
+		select *
+		  from tb_mybatis_board
+		 order by no desc
+	</select>
+	
+	<!-- 댓글 목록 -->
+	<select id="selectCommentList" parameterType="int" resultMap="commentMap">
+		select *
+		  from tb_mybatis_comment
+		 where no = #{no} 
+		 order by comment_no desc
+	</select>
+	
+</mapper>

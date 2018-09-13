@@ -1,0 +1,110 @@
+* { margin: 0px; padding: 0px; box-sizing: border-box; }
+body {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.42;
+}
+
+.container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.container {
+    width: 1170px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;    
+}
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.col-md-1 { width: 8.3333333%; }
+.col-md-2 { width: 16.6666667%; }
+.col-md-3 { width: 25%; }
+.col-md-4 { width: 33.3333333%; }
+.col-md-5 { width: 41.6666667%; }
+.col-md-6 { width: 50%; }
+
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6 {
+    float: left;
+    padding-right: 15px;
+    padding-left: 15px;
+    position: relative;
+    min-height: 1px;
+}
+
+table {
+    border-collapse: collapse;
+}
+th { text-align: left; }
+td, th { padding: 0px; }
+.table {
+    width: 100%; 
+    margin-bottom: 20px;
+}
+.table > tbody > tr > td, .table > tbody > tr > th {
+    padding: 8px;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+    line-height: 1.42;
+} 
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #f9f9f9; 
+}
+
+.table-bordered {
+    border: 1px solid #ddd;
+}
+
+.table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th {
+    border: 1px solid #ddd;
+}
+
+.table-hover > tbody > tr:hover {
+    background-color: #f5f5f5;
+}
+
+.btn {
+    padding: 6px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn:active {
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .125) inset;
+}
+.btn:focus, .btn:hover {
+    color: #333;
+}
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+}
+.btn-primary:active, .btn-primary:focus, .btn-primary:hover {
+    color: #fff;
+    background-color: #286090;
+}
+.btn-success {
+    color: #fff;
+    background-color: #5cb85c;
+}
+.btn-success:active, .btn-success:focus, .btn-success:hover {
+    color: #fff;
+    background-color: #449d44;
+}
+
+
+
+

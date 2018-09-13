@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Form</title>
+</head>
+<body>
+	<!--
+		html 호출된 웹브라우저 URL 
+		http://localhost:8000/08_servletjsp/servlet/basic/test10.html
+		
+		//호출하려는 서블릿의 경로 
+		http://localhost:8000/08_servletjsp/servlet/basic/test10
+	 -->
+	<p>
+		<a href="test10?msg=hello">URL 데이터 전송</a> 
+	</p>
+	
+	<form method="GET" action="/08_servletjsp/servlet/basic/test10">
+		<input type="text" name="msg" />
+		<button>GET 방식 전송하기</button>
+	</form>
+	
+	<form method="POST" action="/08_servletjsp/servlet/basic/test10">
+		<input type="text" name="msg" />
+		<button>POST 방식 전송하기</button>
+	</form>
+</body>
+</html>
+

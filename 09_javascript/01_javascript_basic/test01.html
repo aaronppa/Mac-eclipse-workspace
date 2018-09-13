@@ -1,0 +1,48 @@
+<!-- 
+    자바스크립트
+    - 객체 기반 스크립트 프로그래밍
+    - 주로 웹브라우져에서 사용 
+    - NodeJS를 이용한 콘솔창 환경에서도 사용이 가능 
+    - 웹브라우저내에서 UI의 제어를 하기 위해 사용됨. 
+    - 자바와 문법구분이 유사함, NodeJs는 C언어를 기반으로 만들어졌기 때문...
+    
+    자바스크립트 엔진
+    - 크롬의 V8엔진이 탑재되어 있다. 
+    - 실행 명령을 읽어서 한줄씩 처리하는 구조 (interprete 방식)
+    - 브라우저마다 다른 엔진을 가지고 있다. 
+    - 인터넷 엣지(차크라), 파이어폭스(스파이더 몽키).... 
+    
+    브라우저에서 자바스크립트를 사용하는 경우
+    - <script> ~ </script> 사용 
+    - <script> 태그는 문서내의 위치에 제약을 받지 않는다. (executable at anywhere)
+        - 일반적인 권장 위치: <body> 종료전 
+        
+-->
+    
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        console.log("head 시작 직후");
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        console.log("head 종료 전");
+    </script>
+</head>
+
+<body>
+    <script>
+        console.log("body 시작 후");
+    </script>
+    <h2>자바스크립트 웹브라우저 실행하기</h2>
+    <script>
+        console.log("body 종료 전");
+    </script>
+</body>
+
+</html>

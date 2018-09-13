@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+	
+	
+<!--Root 태그 : 1개만 존재해야함 -->	
+<configuration>
+
+	<!-- 설정파일에서 사용할 프로퍼티의 파일의 경로 지정: classpath  (sqlMapConfig경로) -->
+	<properties resource="config/mybatis/db.properties"/>
+	
+	<!-- SQL의 결과를 담을 VO 객체들의 별칭을 설정하여 사용의 편의를 도모
+		  해당VO 타입의 별칭을 줘서 짧게 하기 위해
+	  -->
+	<typeAliases>  <!-- VO객체 타입의 alias 설정!  -->
+		<typeAlias alias="Mail" type="kr.co.mlec.project.repository.vo.Mail" />
+		<typeAlias alias="User" type="kr.co.mlec.project.repository.vo.User" />
+
+		
+	</typeAliases>
+	
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url"    value="${url}" />				<!-- Proterties 에있는 db.properties의 value가져온다 -->
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+
+
+	<mappers>
+		<mapper resource="config/sqlmap/user.xml"/> 
+		<mapper resource="config/sqlmap/mail.xml"/> 
+
+		
+	</mappers>
+	
+	
+</configuration>

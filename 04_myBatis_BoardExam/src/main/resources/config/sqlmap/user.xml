@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace : 다른 xml과 구별하기 위한 구분자  역할!
+	test1.xml은 TestMapper1에서 작성한 sql문만 사용할 것이다! -->
+<mapper namespace="kr.co.mlec.project.repository.mapper.UserMapper"> 
+
+<resultMap id="userMap" type="User">
+	<result column="id" property="id"/>
+	<result column="password" property="password"/>
+	<result column="pass_hint" property="passHint"/>
+	<result column="gender" property="gender"/>
+	<result column="name" property="name"/>
+	<result column="phone" property="phone"/>
+</resultMap>
+	
+	<!-- 회원가입 -->
+	<insert id="insertUser"  parameterType="User" >
+		insert into tb_mail_user(id, 
+					password, 
+					pass_hint, 
+					gender, 
+					name, 
+					phone)
+		values (	#{id}, 
+					#{password}, 
+					#{passHint}, 
+					#{gender}, 
+					#{name}, 
+					#{phone})
+	</insert>
+	
+	<!-- 로그인 -->
+	<select id="selectUserLogin"  parameterType="User"    resultMap="userMap">
+		select *
+		from tb_mail_user
+		where id=#{id}
+		      and password= #{password}
+	</select>
+	
+	<!-- 비밀번호찾기 -->
+	<select id="selectFindPassword"  parameterType="User"    resultMap="userMap">
+		select *
+		from tb_mail_user
+		where id = #{id}
+		      and pass_hint = #{passHint}
+	</select>
+	
+
+	
+
+	
+	
+    
+</mapper>

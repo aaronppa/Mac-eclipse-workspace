@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>iframe</title>
+        </head>
+        <body>
+            <!--
+                페이지 링크 설정하기
+                : 절대 주소 - http:// 로 시작
+                : tkdeownth - /로 시작, /로 시작하지 않은 경우 자신의 위치 기준
+            -->
+            <p>
+                <a href="http://www.naver.com">Naver</a>
+            </p>
+            <p>
+                <!-- 절대 주소 -->
+                <a href="http://127.0.0.1:5500/src/main/java/org/teamfive/01_basic/exam09.html">exame09 page</a>
+            </p>
+            <p>
+                <!-- 상대 주소  1
+                    /로 시작하는 경우 http부터 port까지 제외 하고 적는다.
+                -->
+                <a href="/src/main/java/org/teamfive/01_basic/exam09.html">exame09 page2</a>
+                <br>
+                <a href="/src/main/java/org/teamfive//images/god.jpg">god.jpg</a>
+            </p>
+            <p>
+                <!--
+                    상대경로 2
+                    /로 시작 하지 않는 경우
+                    웹브라우져에 호출된 url 기준으로 찾는다. 
+
+                    http://127.0.0.1:5500/src/main/java/org/teamfive/01_basic/exam09.html
+                -->
+                <a href="exam09.html">exam09 page3</a>
+                <br>
+                <a href="../images/god.jpg">god.jpg</a>
+            </p>
+        </body>
+    </html>

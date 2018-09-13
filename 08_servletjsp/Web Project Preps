@@ -1,0 +1,8 @@
+1. Tomcat Download
+2. Tomcat Unzip
+3. Eclipse Servers 탭(Console)에서 압축푼 폴더 연결
+4. 연결된 서버 환경 설정 변경(포트번호, 서버작업 디렉토리 변경)
+5. webapp 폴더 하위 WEB-INF 폴더 생성수 web.xml 파일 붙여넣기
+6. POM.xml 설정 (이전 dependencies와 build 부분 복붙) --> Maven Project Update
+7. Maven Project -> properties -> Target Runtimes - Apache 9.0 선택
+8. Maven Project -> properties -> Project Facets - Version check

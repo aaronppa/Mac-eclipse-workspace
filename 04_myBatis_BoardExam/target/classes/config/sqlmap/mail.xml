@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace : 다른 xml과 구별하기 위한 구분자  역할!
+	test1.xml은 TestMapper1에서 작성한 sql문만 사용할 것이다! -->
+<mapper namespace="kr.co.mlec.project.repository.mapper.MailMapper"> 
+	<resultMap type="Mail" id="mailMap">
+		<result column="mail_no"   property="mailNo"/>
+		<result column="reg_date"   property="regDate"/>
+		<result column="read_yn"   property="readYN"/>
+		<result column="delete_yn"   property="deleteYN"/>
+	</resultMap>
+	
+	<!-- 받은 메일함 조회  -->
+	<select id="receiveMail"  parameterType="String"   resultMap="mailMap">
+		select *
+		from tb_mail
+		where recipient=#{recipient}
+		  and bin_YN='N'
+		order by mail_no desc
+	</select>
+	
+	<!-- 읽음 표시 -->
+	<update id="updateReadYN" parameterType="string">
+		update tb_mail
+		   set read_YN = 'Y'
+		 where recipient = #{recipient}
+	</update>
+	
+	
+	
+	<!-- 보낸 메일함 조회  -->
+	<select id="sendMail"  parameterType="String"  resultMap="mailMap"  >
+		select *
+		from tb_mail
+		where sender=#{sender}
+		order by mail_no desc
+	</select>
+	
+	<!-- 메일 쓰기  -->
+	<insert id="mailWrite"  parameterType="Mail" >
+		insert into tb_mail(mail_no, sender, recipient, title, content )
+		values ( s_mail_no.nextval, #{sender} , #{recipient}, #{title}, #{content})
+	</insert>
+	
+	
+	<!-- 휴지통으로 보내기(메일 삭제)  -->
+	<update id="throwAway" parameterType="Mail" >
+		update tb_mail 
+		set bin_YN= 'Y'
+		where mail_no = #{mailNo}
+		  and recipient = #{recipient}
+	</update>
+	
+	<!-- 휴지통 메일 복원하기 -->
+	<update id="updateRestoreMail" parameterType="Mail" >
+		update tb_mail
+		set bin_YN= 'N'
+		where mail_no = #{mailNo}
+		  and recipient=#{recipient}
+	</update>
+	
+	
+	<!-- 휴지통에 있는 메일 리스트 출력  -->
+	<select id="selectBinMail" parameterType="string" resultMap="mailMap">
+	 	select * 
+	 	  from tb_mail
+	 	 where bin_YN ='Y'
+	 	   and delete_YN='N'
+	 	   and recipient =#{recipient}
+	</select>
+	
+	<!-- 메일 번호 선택 영구삭제 -->
+	<update id="updateDeleteMail" parameterType="Mail" >
+		update tb_mail
+		   set delete_YN = 'Y'
+		where mail_no = #{mailNo}
+		  and recipient = #{recipient}
+		  
+	</update>
+	
+	<!-- 휴지통 전체 비우기  -->
+	<update id="updateDeleteMailAll" parameterType="String" >
+		update tb_mail
+		  set delete_YN = 'Y'
+		where recipient = #{recipient}
+		  and bin_YN ='Y'
+	</update>
+	
+	
+</mapper>

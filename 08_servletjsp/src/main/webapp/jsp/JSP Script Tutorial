@@ -1,0 +1,31 @@
+JSP 설명 
+JSP: 서블릿에서 불편하게 여기던 화면단의 처리를 쉽게 작성하기 위해서 나옴.
+	JSP는 서버에서 실행되는 대표적인 서버사이드 언어
+	JSP는 서버에서 서블릿으로 변환되어 처리된다. 
+		1. (.jsp -> .java -> .class -> 메모리에 올린다.(하나만) -> 실행 -> 처리된 결과를 브라우저로 Display)
+		2. (두번째 호출부터는                                     실행 -> 처리된 결과를 브라우저로 Display)
+	
+	-= Auto Path Directory Creation when .jsp converts to .java =-  
+	/Users/wonchoi/eclipse-workspace/tomcat-work/work/Catalina/localhost/08_servletjsp/org/apache/jsp
+
+	.jsp -> .java
+	public class...
+		_jspService(...){
+						 .jsp
+						 <html>
+						 ...
+						 </html>
+
+	Internal Object(내장객체): 
+		ex) request, response, pageContext, session, out, application, config, page.... 
+		 
+Script
+	1. <%@       %> : 지시문(page, include, taglib)
+					ex) <%@ page %>
+					    <%@ include %>
+					    <%@ taglib %>
+	2. <%=       %> : 표현식(화면 또는 특정 부분에 출력), out.println("테스트") 대체 (Java Expression tag)
+	3. <%        %> : 실행문(자바코드) (Java Code>
+	4. <%!       %> : 선언문(멤버변수, 메서드 선언시), 거의 사용하지 않는다. (Declaration tag) 
+	5. <%--    --%> : JSP 주석문 , jsp에서 servlet으로 변경시 포함되지 않는다. 
+	

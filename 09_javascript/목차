@@ -1,0 +1,10 @@
+01_javascript_basic
+    - test01.html: 자바스크립트 개념과 스크립트 사용 위치
+    - test01.html: 자바스크립트 src=
+    - test03.js: node console
+    - test04_01.js: 자바스크립트 변수
+    - test04_02.js: use strict: ECMA5 
+    - test04_03.js: 변수의 중복 선언 가능 
+    - test04_04.js: 변수의 이해 - 호이스팅(compile 과정)
+    - test04_05.js: 호이스팅(compile 과정) 퀴즈 
+    - test04_06.js: 변수와 데이터 타입

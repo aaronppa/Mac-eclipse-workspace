@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+    querySelectorAll("css 선택자"): 모든 엘리먼트 반환, 배열접근 사용..  
+-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #result{
+            width: 90%;
+            height: 200px;
+            border: 5px solid saddlebrown;
+            margin: 30px 0px;
+        }
+    </style>
+</head>
+<body>
+    <h2>연습하기</h2>
+    <hr>
+    <p class="food">Apple</p>
+    <p class="food">Orange</p>
+    <p class="food">Grape</p>
+    <p class="food">Strawberry</p>
+    <p class="food">Watermelon</p>
+    <p class="food">Mango</p>
+    
+    <div id="result">kdjf acoiesh;lkjxd;flhjdlk;cfj;lhjd;bgvzx;mfdjk;idah</div>
+
+    <button type="button" onclick="doAction()">Click</button>
+    <button type="button" onclick="doClear()">Remove</button>
+
+    <script>
+        function doAction(){
+            var pList = document.querySelectorAll("p.food")
+            var html = ""
+            for(var i=0;i<pList.length;i++){
+                // alert(pList[i].innerText)
+                html += pList[i].innerText + "<br>"
+            }
+            var divEle = document.querySelector("#result")
+            divEle.innerHTML = html
+        }
+
+        function doClear(){
+            // id result인 엘리먼트 안의 내용을 지운다. 
+            var divEle = document.querySelector("#result")
+            divEle.innerHTML = ""
+        }
+    </script>
+
+</body>
+</html>

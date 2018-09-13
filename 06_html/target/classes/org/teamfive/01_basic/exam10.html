@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>Document</title>
+        </head>
+        <body>
+            <!--
+                fieldset: 입력항목을 그룹으로 묶어서 표현시 사용
+                legend: 그룹핑에 대한 설명
+                
+                html5에 추가된 태그 
+            -->
+            <form>
+                <fieldset>
+                    <legend>입력항목 1</legend>
+                    <p>
+                        <!-- 
+                            type="color": RGB 형태의 색상을 선택하고 반환
+                            반환되는 색상 값의 형태: #6자리 숫자
+                            ex> #342244, #ffffff
+                                R(2) G(2) B(2)
+                                한 색상에 0~255까지 가능한데 두자리 숫자를 16진수로 표현한다.
+                                value 속성을 이용하여 소치값 지정 가능 
+
+                                value
+
+                        -->
+                        color: <input type="color" name="co" value="#145638" />
+                    </p>
+                    <p>
+                        <!--
+                            required: 필수 여부 지정 
+                        -->
+                        email: 
+                        <input type="email" name="email" required />
+                    </p>
+                    <p>
+                        <!--
+                            type="url" : 절대 URL 형태만 가능(http로 시작하는 URL만 가능)
+                        -->
+                        url:
+                        <input type="url" name="myurl" /> (http:// 로 시작)
+                    </p>
+                </fieldset>
+                <fieldset>
+                    <legend>입력항목 2</legend>
+                    <!--
+                        type="date" : 날짜를 선택할 수 있는 창
+                        value: 초기 화면에 표시될 날짜를 지정
+                        min: 사용자가 선택할 수 있는 최소 날짜
+                        max: 사용자가 선택할 수 있는 최대 날짜
+                    -->
+                    <p> 
+                    date:
+                    <input type="date" name="mydate" 
+                            value="2018-12-26" 
+                            min="2018-06-26"
+                            max="2018-12-26"
+                            />
+                    </p>
+                    <p>
+                        <input type="month" name="mymonth" />
+                    </p>
+                </fieldset>
+                <fieldset>
+                    <legend>입력항목 3</legend>
+                    <p>
+                        <!--
+                           type="number" : 지정된 범위내의 숫자 선택  
+                           step: 증가치 
+                        -->
+                        <input type="number" name="month" 
+                                min="1"
+                                max="12"
+                                />
+                        <input type="number" name="date" 
+                                min="1"
+                                max="31"
+                                />
+                        <input type="number" name="myno" 
+                                min="0"
+                                max="100"
+                                step="10"
+                                />
+                    </p>
+                    <p>
+                        range:
+                        <input type="range" name="myrange" 
+                                min="0"
+                                max="1.0"
+                                step="0.1"
+                                value="0.5"
+                                />
+                    </p>
+                    <p>
+                        progress: <br>
+                        <progress value="0.4" max="1"></progress>0.4
+                        <progress value="4 max="10"></progress>4 / 10
+                    </p>
+                    <p>
+                        meter: <br>
+                        <meter value="0.4" max="1"></meter>0.4
+                        <meter value="4 max="10"></meter>4 / 10
+                    </p>
+                </fieldset>
+                <button>전송</button>
+            </form>
+        </body>
+    </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+    document.querySelector("css 선택자"): Element 한개 선택 
+
+    innerHTML : <element>내용</element>
+              : element의 내용을 가져 오거나 변경
+              : html태그가 있는 경우 처리 
+    innerText : <element>내용</element>
+              : element의 내용을 가져 오거나 변경
+              : html태그가 있는 경우 일반 텍스트로 표시  
+-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>test10.html 자바스크립트를 이용한 접근</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="main.js"></script>
+</head>
+<body>
+    <h2>연습하기</h2>
+    <div>자바스크립트를 이용한 접근</div>
+    <p id="food">
+        모든 음식에는 <span id="s1">정성이</span> 들어가야 합니다. 
+    </p>
+    <button type="button" onclick="doAction()">클릭</button>
+    
+    <script>
+        function doAction(){
+            // alert("doAction 호출되었음...")
+            var pEle = document.querySelector("#food")
+            alert(pEle.innerHTML)
+            alert(pEle.innerText)
+
+            // pEle.innerHTML = "<h2>변경된 p태그의 내용입니다.</h2>";
+            // pEle.innerText = "<h2>변경된 p태그의 내용입니다.</h2>";
+            pEle.innerHTML += "<h2>변경된 p태그의 내용입니다.</h2>";
+        }
+    </script>
+</body>
+</html>

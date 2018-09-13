@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <style>
+        table {
+            width: 500px;
+        }
+        table, th, td {
+            border: 1px solid #444;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        table : 표 형태의 데이터를 표시
+        tr(table row) : 하나의 행
+        td(table data) : 하나의 데이터
+    -->
+    <h1>테이블 연습</h1>
+    <!-- 표 형태를 사용한다. -->
+    <table>
+        <!-- td는 반드시 tr 안에 있어야 한다. -->
+        <tr>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>이순재</td>
+            <td>33</td>
+        </tr>
+    </table>
+
+    <hr>
+    <table>
+        <!-- th : 데이터에 대한 설명 -->
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>나이</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>이순재</td>
+            <td>33</td>
+        </tr>
+    </table>
+
+    <hr>
+    <table>
+        <!-- 표의 제목 -->
+        <caption>테이블의 제목</caption>
+        <!-- thead : 열의 제목 집합 -->
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>나이</th>
+            </tr>
+        </thead>
+        <!-- tbody : 본문 내용, 직접 정의하지 않아도 브라우져에서 자동 생성  -->
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>이순재</td>
+                <td>33</td>
+            </tr>
+        </tbody>
+        <!-- 본문 내용의 요약 -->
+        <tfoot>
+            <tr>
+                <td>평균나이</td>
+                <td>25</td>
+            </tr>
+        </tfoot>
+    </table>    
+
+    <hr>
+    <h2>테이블의 컬럼 합치기</h2>
+    <table>
+        <tr>
+            <th>번호1</th>
+            <th>번호2</th>
+            <th>번호3</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td colspan="2">5</td>
+        </tr>
+        <tr>
+            <td colspan="2">6</td>
+            <td>7</td>
+        </tr>
+        <tr>
+            <td colspan="3">8</td>
+        </tr>
+    </table>
+
+    <hr>
+    <h2>테이블의 행 합치기</h2>   
+    <table>
+        <tr>
+            <th>번호1</th>
+            <th>번호2</th>
+            <th>번호3</th>
+        </tr>      
+        <tr>
+            <td rowspan="2">1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>  
+        <tr>
+            <td rowspan="2">4</td>
+            <td>5</td>
+        </tr>  
+        <tr>
+            <td>6</td>
+            <td>7</td>
+        </tr>  
+    </table> 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

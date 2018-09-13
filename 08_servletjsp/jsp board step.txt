@@ -1,0 +1,8 @@
+1. 첨부파일 테이블 생성
+2. writeForm.jsp 파일에 첨부파일 선택 추가
+3. WriteBoardController 파일 저장부분 추가
+4. BoardMapper - 첨부파일관련 메서드 추가 
+5. board.xml - 첨부파일 관련 sql 추가
+6. Detail.jsp 파일에 첨부된 파일의 이름 보여주기
+   - 첨부된 파일 클릭 시 다운로드 
+7. DetailContentBoardController 첨부파일 목록 조회 부분 추가 

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.mlec.mapper.TestMapper1">
+    <!--  
+    <insert id=""></insert>
+    <select id=""></select>
+    <update id=""></update>
+    <delete id=""></delete>
+    -->
+    
+    <select id="selectMemberInfo1" parameterType="string" resultType="Member">
+    	select id,
+    		   name,
+    		   addr,
+    		   email
+    	  from tb_mybatis_member
+    	 where id = #{id} 	   
+    </select>
+    
+    <select id="selectMemberInfo2" parameterType="Member" resultType="Member">
+    	select id,
+    		   name,
+    		   addr,
+    		   email
+    	  from tb_mybatis_member
+    	 where id = #{id} 	   
+    	   and name = #{name}
+    </select>
+    
+    <select id="selectMemberInfo3" parameterType = "string" resultType="string">
+    	select name
+    	  from tb_mybatis_member
+    	 where id = #{id} 
+    </select>
+    
+    <select id="selectMemberInfo4" resultType="int">
+    	select count(*)
+    	  from tb_mybatis_member 
+    </select>
+    
+    <select id="selectMemberList1" resultType="Member">
+    	select id,
+    		   name,
+    		   addr,
+    		   email,
+    		   join_date as joinDate
+    	  from tb_mybatis_member
+    	order by id 
+    </select>
+    
+    <resultMap type="Member" id="memberMap">
+    <!-- 
+    	<result column="id" property="id"/>
+    	<result column="name" property="name"/>
+    	<result column="email" property="email"/>
+    	<result column="addr" property="addr"/>
+    	 -->
+    	<result column="join_date" property="joinDate"/>
+    </resultMap>
+    
+    <select id="selectMemberList2" resultMap="memberMap">
+    	select *
+    	  from tb_mybatis_member
+    	order by id 
+    </select>
+    
+    <select id="selectMemberList3" resultType="string">
+    	select name
+    	  from tb_mybatis_member
+    	 order by name  
+    </select>
+    
+    <!--  Dynamic Search sql -->
+    <!-- 특정지역에 사는 회원들의 정보를 가져오자... -->
+    <select id="selectMemberIteratorList" parameterType="Member" resultMap="memberMap">
+    	select *
+    	  from tb_mybatis_member
+    	 where addr in <foreach collection="addrs" item="addr" open="(" separator="," close=")">
+    	 					#{addr}
+    	 			   </foreach>
+    </select>
+    
+    <!-- sql 문을 재활용하기 위한 부분 -->
+    <sql id="commonMember">
+    	  from tb_mybatis_member
+    	 where id = #{id}     
+    </sql>
+    
+    <select id="selectMemberIncludeList" parameterType="string" resultMap="memberMap">
+    	select *
+    	<include refid="commonMember" />
+    </select>
+    
+    <select id="selectMemberIncludeListCount" parameterType="string" resultType="int">
+     	select count(*)
+    	<include refid="commonMember" />
+    </select>
+    
+    <select id="selectMemberSearchList" parameterType="Search" resultMap="memberMap">
+     	select *
+          from tb_mybatis_member
+            <where>
+	          <choose>
+		           <when test="searchType =='id'"> <!-- 조건을 명시할떄 test를 사용 -->
+		         		id like '%' || #{searchWord} || '%'
+		           </when>
+		           <when test="searchType =='name'"> 
+		         		name like '%' || #{searchWord} || '%'
+		           </when>
+		           <otherwise> <!-- default : 자바의 else 와 동일 -->
+		           		email like '%' || #{searchWord} || '%'
+		           </otherwise>
+	          </choose> 
+           </where>
+    </select>
+    
+    <select id="selectMemberSearchList2" parameterType="Member" resultMap="memberMap">
+    	select *
+          from tb_mybatis_member
+            <where>
+       			<if test="id !=null">
+       				id like '%' || #{id} || '%'
+       			</if>
+       			<if test="name !=null">
+       				and name like '%' || #{name} || '%' <!--  만약 위의 if 문에 id가 null 값이면 자동으로 and를 제외시키고 실행 -->
+       			</if>     
+            </where>
+    </select>
+    
+    <insert id="insertMember" parameterType="Member">
+    	insert into tb_mybatis_member(
+    		id, name, email, addr
+    	) values(
+    		#{id}, #{name},#{email},#{addr}
+    	)    	 	
+    </insert>
+    
+    <delete id="deleteMember" parameterType="string">
+    	delete 
+    	  from tb_mybatis_member
+    	 where id = #{id} 
+    </delete>
+    
+    <update id="updateMember" parameterType="Member">
+    	update tb_mybatis_member
+    	   set name = #{name}	
+    	 where id = #{id} 
+    </update>
+</mapper>

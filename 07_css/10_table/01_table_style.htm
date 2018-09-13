@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> 테이블 스타일 꾸미기 </title>
+  <meta charset="utf-8" />
+  <style>
+    table,
+    th,
+    td {
+      font-family: helvetica;
+      border: 1px solid #345;
+      height: 50px;
+    }
+
+    table {
+      margin: auto;
+      /* default border-collapse: separate */
+      border-collapse: collapse;
+      width: 400px;
+    }
+
+    th {
+      text-align: center;
+      background: teal;
+    }
+
+    td {
+      padding: 5px;
+      text-indent: 2px;
+    }
+
+    tr:nth-child(2n) {
+      background: bisque;
+    }
+
+    tr:nth-child(2n+1) {
+      background: turquoise;
+    }
+
+    tr:hover{
+      color: white;
+      background: black;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <th>번호</th>
+      <th>제목</th>
+      <th>글쓴이</th>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>CSS 테이블 스타일</td>
+      <td>홍길동</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>CSS 연습중..</td>
+      <td>장길산</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>aa</td>
+      <td>aaa</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>cc</td>
+      <td>ccccc</td>
+    </tr>
+  </table>
+
+</body>
+
+</html>

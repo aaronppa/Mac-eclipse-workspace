@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>Document</title>
+        </head>
+    <body>
+        <h1>사용자 입력 값 전송 테스트</h1>
+        <!--
+        form
+         - 사용자의 입력값을 처리하기 위한 태그
+         - 화면에서 입력한 값을 서버에 보낸다.
+
+         속성
+         action: 서버의 입력값을 처리할 페이지 주소, 생략시 자기 자신 페이지 호출
+         method: GET(입력값이 URL에 붙어간다. default) /  POST(입력값들이 body에 붙어서 간다.)
+         name: 프로그램에서 form 태그를 접근하기 위해서 많이 사용한다. 
+         encType: 파일 업로드시에 multipart/form-data 값을 지정해야만 한다. 
+                : 파일 업로드시에는 POST만 가능함...(파일 주소가 길어서 URL에 다 넣기 힘들기때문에 POST만 사용가능)
+            POST 방식을 사용하는 경우 : 사ㅣ용자 입력 내용이 많은 경우, 보안
+         -->
+         <!--
+            document.mForm <- 접근... 자바스크립트에서 사용될 코드 
+         -->
+         <!-- <form action="a.jsp" method="GET" name="mForm" encType="multipart/form-data"> -->
+         <form action="a.jsp" method="GET">
+            <!--
+                사용자가 값을 입력받는 것과 연관된 태그
+                input:
+                select:
+                textarea: 
+
+                form 안의 태그중에서 위의 3가지만 서버로 데이터가 전송 
+            -->
+            <!-- 
+                input 태그는 type  속성을 이용해서 사용자에게 입력받는 형식을 지정할 수 있다.
+                type = "hidden" : 사용자의 입력을 받지 않는다. 
+                                : 개발자가 필요에 의해서 값을 추가하려고 할때 사용
+                mode = R
+            -->
+            <input type="hidden" name="mode" value="R" />
+
+            <!--
+                type="text"
+                한줄 내용을 입력받을 떄 사용한다. 
+
+                서버에 입력한 값이 전송하기 위해서는 반드시 **name** 속성을 선언해야 한다. 
+                placeholder: 사용자가 올바른 입력을 할 수 있게 미리보기 형식으로 값을 표현
+                autofocus: 자동으로 포커스를 이동시킨다. 
+            -->
+            <div>
+                text : <input type ="text" name="id" 
+                              autofocus
+                              placeholder="아이디를 입력하세요." />
+            </div>
+            <div>
+                <!--
+                    type="password" : 사용자 입력 값을 암호화 처리한다. 
+                    maxlength: 최대입력 가능한 길이 지정 
+                -->
+                password : <input type="password" name="pass" maxlength="8" placeholder="비번입력"/>
+
+            </div>
+            <div>
+                <!--
+                    type="checkbox" : 사용자에게 사각형 모양의 체크를 할 수 있는 UI 제공
+                    체크한 것만 서버로 전송됨
+                    만약 별도의 value 속성을 지정하지 않으면 "on"이 전송된다. 
+
+                    id: 페이지 내에서 고유한 값을 설정함. 
+                -->
+                checkbox :
+                <input id="f1" type="checkbox" name="fruit" value="1" />
+                <!--
+                    label: 특정한 아이템과 연관 지을 수 있음...
+                -->
+                <label for="f1">사과</label>
+                <input id="f2" type="checkbox" name="fruit" value="2" checked />
+                <label for="f2">배</label>
+                <input id="f3" type="checkbox" name="fruit" value="3" checked />
+                <label for="f3">포도</label>
+            </div>
+
+            <div>
+                <!--
+                    type="radio" : checkbox와 유사한 성격이다.
+                    동그란 모양으로 주로 여러가지 중에서 하나만 선택하게 할 경우 사용 
+                    
+                    하나만 선택하게 하려면 반드시 name을 동일하게 지정해야 한다. 
+                -->
+                radio : 
+                <input id="sms1" type="radio" name ="sms" value="y" checked />
+                <label for"sms1">수신</label>
+                <input id="sms2" type="radio" name ="sms" value="n"/>
+                <label for"sms2">수신하지 않음</label>
+            </div>
+
+            <div>
+                <!--
+                    type="file" : 사용자의 시스템에 있는 파일을 선택할 수 있게 한다.
+                    파일을 서버에 전송하기 위해서는 2가지 제약 사항을 지켜야한다.
+                    1. method="POST"
+                    2. enctype="multipart/form-data"
+
+                    html5부터 multiple 속석을 이용하면 여러개의 파일 선택이 가능 
+                -->
+                file: <input type="file" name="attach" multiple />
+            </div>
+
+            <div>
+                <!--
+                    select 태그는 자체에 여러개의 데이터 목록을 관리한다. 
+                    각각의 데이터는 option 태그를 이용한다. 
+                    
+                    선택된 option 항목의 value 속성값이 전송됨. 
+
+                    selected : 특정항목을 선택된 상태로 보이기 위해서 
+                -->
+                select: 
+                <select name="area">
+                    <option value="0">선택</option>
+                    <option value="1">서울특별시</option>
+                    <option value="2" selected>제주특별자치도</option>
+                </select>
+            </div>
+            <div>
+                <!--
+                    textarea: 여러줄의 텍스트를 입력 받을 때.
+
+                    rows : 초기 화면에 몇줄을 입력받는 화면으로 구성할지 
+                    cols : 초기 화면에 몇자를 입력받는 화면으로 구성할지 
+                -->
+                textarea:
+                <textarea name="contents" rows="8" cols="70"
+                >이곳에 내용이 나옵니다.0</textarea>
+            </div>
+            <div>
+                <!-- 화면 버튼 보이기 -->
+            
+            <!-- 사용자가 입력한 값들을 서버로 전송하기 위해서 submit을 이용한다. 
+                 input type="submit"
+                 form 태그의 action 속성에 지정된 페이지로 전송한다. 
+                 Button에 표시되는 라벨을 바꾸려고 할때는
+                 value 속성에 값을 지정한다. 
+            -->
+            <input type="submit" value="등록" />
+            <!--
+                type="reset" : 사용자가 입력한 내용을 초기화 한다. 
+            -->
+            <input type="reset" value="초기화" />
+            <!--
+                type="button" : 아무런 기능이 없다. 
+                개발자가 직접 액션을 정의해서 사용한다. (javascript 활용)
+            -->
+            <input type="button" value="버튼" 
+                   onclick="alert('click했어요...');" /> 
+            </div>
+            <div>
+                <button>submit</button> <!-- type 속성을 지정하지 않으면 submit이 default로 지정됨 -->
+                <button type="submit">submit</button>
+                <button type="reset">reset</button>
+                <button type="button">button</button>
+            </div>
+        </form>
+    </body>
+</html>

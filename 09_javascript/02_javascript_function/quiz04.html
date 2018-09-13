@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>3Second Click Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        button{
+            padding: 15px 32px;
+            font-size: 25px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>3초 동안 누가 많이 클릭하나</h1>
+    <div id="view">
+    </div>
+    <button type="button" onclick="doStart()">Start</button>
+    <button type="button" onclick="doAction()">Click</button>
+    <p id="result"></p>
+    <script>
+        function doStart(){
+            setTimeout(() => {
+                var view = document.querySelector("#view");
+                var result = document.querySelector("#result");
+                view.innerText = result.innerText + "회 클릭하셨습니다."
+            }, 3000);
+        }
+        function doAction(){
+            var result = document.querySelector("#result");
+            if(!result.innerText){
+                result.innerText = 0;
+            }
+            result.innerText = parseInt(result.innerText) + 1;
+        }
+    </script>
+</body>
+</html>

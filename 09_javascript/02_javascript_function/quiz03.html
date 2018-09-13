@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        button{
+            padding: 15px 32px;
+            font-size: 25px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" onclick="doAction()">Click</button>
+    <p id="result"></p>
+    <script>
+        function doAction(){
+            var result = document.querySelector("#result");
+            if(!result.innerText){
+                result.innerText = 0;
+            }
+            result.innerText = parseInt(result.innerText) + 1;
+        }
+    </script>
+</body>
+</html>
