@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>DOM Node 생성</h1>
+    <hr>
+    <div id="addbox"></div>
+    <ul>
+        <li><a href="#" onclick="doAction(1)">문자열 박스 생성</a></li>
+        <li><a href="#" onclick="doAction(2)">비밀번호 박스 생성</a></li>
+        <li><a href="#" onclick="doAction(3)">체크박스 생성</a></li>
+        <li><a href="#" onclick="doAction(4)">라디오버튼 박스 생성</a></li>
+        <li><a href="#" onclick="doAction(5)">버튼 생성</a></li>
+        <li><a href="#" onclick="doAction(6)">콤보 박스 생성</a></li>
+    </ul>
+
+    <script>
+        function doAction(num){
+            switch(num){
+                case 1:
+                    var divEle = document.querySelector("#addbox")
+                    var divider = document.createElement("div")
+                    divEle.appendChild(divider)
+                    divider.innerText = "문자열:"
+                    var input = document.createElement("input")
+                    input.setAttribute("type","text")
+                    divider.appendChild(input)
+                    break;
+                case 2:
+                    var divEle = document.querySelector("#addbox")
+                    var divider = document.createElement("div")
+                    divEle.appendChild(divider)
+                    divider.innerText = "비밀번호: "
+                    var input = document.createElement("input")
+                    input.setAttribute("type","password")
+                    divider.appendChild(input)
+                    break;
+                case 3:
+                    var divEle = document.querySelector("#addbox")
+                    var divider = document.createElement("div")
+                    divEle.appendChild(divider)
+                    var checkBox = document.createElement("input")
+                    checkBox.setAttribute("type","checkbox")
+                    checkBox.setAttribute("id","cbox")
+                    divider.appendChild(checkBox)
+                    var cLabel = document.createElement("label")
+                    cLabel.setAttribute("for","cbox")
+                    cLabel.innerText = "체크박스"
+                    divider.appendChild(cLabel)
+                    break;
+                case 4:
+                    var divEle = document.querySelector("#addbox")
+                    var divider = document.createElement("div")
+                    divEle.appendChild(divider)
+                    var radio = document.createElement("input")
+                    radio.setAttribute("type","radio")
+                    radio.setAttribute("id","rad")
+                    divider.appendChild(radio)
+                    var cLabel = document.createElement("label")
+                    cLabel.setAttribute("for","rad")
+                    cLabel.innerText = "라디오버튼"
+                    divider.appendChild(cLabel)
+                    break;
+                case 5:
+                    var divEle = document.querySelector("#addbox")
+                    var divider = document.createElement("div")
+                    divEle.appendChild(divider)
+                    var button = document.createElement("button")
+                    divider.appendChild(button)
+                    button.innerText = "버튼"
+                    break;
+                case 6:
+                    var divEle = document.querySelector("#addbox")
+                    var divider = document.createElement("div")
+                    divEle.appendChild(divider)
+                    var combo = document.createElement("select")
+                    combo.setAttribute("id","combo")
+                    divider.appendChild(combo)
+                    for(let i=0;i<6;i++){
+                        var option = document.createElement("option")
+                        var opt = `${i}`
+                        option.setAttribute("value",parseInt(opt)+1)
+                        option.innerText= "콤보항목 ->"+(i+1)
+                        combo.appendChild(option)
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+
+    </script>
+</body>
+</html>

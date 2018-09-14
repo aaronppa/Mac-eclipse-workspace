@@ -33,6 +33,8 @@ function arrFor(arr, cb){
     }
 }
 sum = 0
+
+// forEach
 arr.forEach(function(val, i, array){
     sum+= val
 })

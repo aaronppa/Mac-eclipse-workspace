@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table, tr, td {
+            border: 1px solid black;
+        }
+        td{
+            width: 70px; height: 15px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="addTable()">Add</button>
+    <button onclick="removeTable()">Remove</button>
+    <table>
+        <tr id="mother">
+            <td id="fixed"></td>
+        </tr>
+        <tr id="mother">
+            <td id="fixed"></td>
+        </tr>
+    </table>
+
+    <script>
+        addTable = () => {
+            var alpha = document.querySelectorAll("tr")
+            for(let i=0;i<alpha.length;i++){
+                var cols = document.createElement("td")
+                cols.setAttribute("id","delok")
+                alpha[i].appendChild(cols)
+            }
+        }
+
+        removeTable = () => {
+            var last = document.querySelectorAll("tr td:last-child")
+            for(let i = 0;i<2;i++){
+                var tdId = document.querySelectorAll("td:last-child")
+                var delOk = tdId[i].getAttribute("id")
+                if(delOk=="delok"){
+                    last[i].remove()
+                } else{
+                    alert("더이상 삭제할 테이블이 없습니다.")
+                    break;
+                    }
+            } 
+        }
+
+    </script>
+</body>
+</html>

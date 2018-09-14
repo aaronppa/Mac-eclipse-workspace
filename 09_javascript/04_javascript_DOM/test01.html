@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+    DOM(Document Object Model)
+     - 웹브라우저의 자바스크립트 엔진이  html 태그를 읽고 각 태그를 자바 스크립트 객체로 관리
+     - dom tree: 태그와 태그의 관계(부모, 형제)를 표현하기 위해서 트리 구조를 사용
+
+-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <button onclick="doAction(1)">태그 선택자</button>
+    <button onclick="doAction(2)">아이디 선택자</button>
+    <button onclick="doAction(3)">클래스 선택자</button>
+
+    <div>테스트1</div>
+    <div id="a">테스트2</div>
+    <div class="b">테스트3</div>
+
+    <script>
+        function doAction(type){
+            switch(type){
+                case 1:
+                    // var list = document.getElementsByTagName("div")
+                    // ES5 부터 
+                    var list = document.querySelectorAll("div")
+                    for(var i=0;i<list.length; i++){
+                        console.log(list[i].innerText)
+                    }
+                    break;
+                case 2:
+                    // var idEle = document.getElementById("a")
+                    // ES5 부터 
+                    var idEle = document.querySelector("#a")
+                    // console.log(idEle) // <div id="a">테스트2</div>
+                    console.log(idEle.innerText)
+                    break;
+                case 3:
+                    /*
+                    var list = document.getElementsByClassName("b")
+                    for(var i=0;i<list.length; i++){
+                        console.log(list[i].innerText)
+                    }
+                    */
+                    var clsEle = document.querySelector(".b")
+                    console.log(clsEle.innerText)
+                    break;
+                
+            }
+        }
+    </script>
+</body>
+</html>

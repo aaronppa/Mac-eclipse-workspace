@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+    엘리먼트 속성 추가하기
+    element.newProperty = 값 (추가되지 않음)
+
+    element.setAttritube("속성명","값")
+
+    사용자가 직접 정의한 속성은 설정 할수 없다. 
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="doAdd()">Add</button>
+    <div id="list"></div>
+
+    <script>
+        function doAdd(){
+            var img = document.createElement("img")
+            // <img src="../images/test1.jpg" width="300 height="200">
+            // img.src = "../images/test1.jpg"
+            img.setAttribute("src","../images/test1.jpg")
+            // img.width = 300
+            img.setAttribute("width",300)
+            // img.height = 200
+            img.setAttribute("height",200)
+            
+            // 사용자 정의 속성 추가하기
+            // data-속성명
+            img.setAttribute("data-msg","사용자 속성입니다.")
+
+            // id가 list인 div에 생성된 img 태그 추가 
+            var list = document.querySelector("#list")
+            list.appendChild(img)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+    
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="doAdd()">Add</button>
+    <button onclick="doRemove()">Remove</button>
+    <div id="list">
+        <h2>Test</h2>
+    </div>
+<script>
+    function doAdd(){
+        
+        var list = document.querySelector("#list")
+        // list.innerHTML += "<h2>Test</h2>"
+        // innerHTML 방식으로 text 박스를 추가하면, text input박스 내에 데이터는 추가할때 사라진다.
+        // 이떄는 DOM 방식을 쓰면 Text input box 내에 있는 데이터는 살아 있다. 
+        // list.innerHTML += "<input type='text'>"
+        var txtInput = document.createElement("input")
+        txtInput.setAttribute("type","'text'")
+        list.appendChild(txtInput)
+
+
+    }
+
+    function doRemove(){
+        var h2Ele = document.querySelector("h2:last-child")
+
+        h2Ele.remove()
+    }
+</script>
+</body>
+</html>

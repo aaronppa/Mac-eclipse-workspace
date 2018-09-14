@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+    엘리먼트 동적 추가하기
+    
+    // 생성
+    var childElement = document.createElement(태그명)
+
+    // 엘리먼트 내용이 텍스트인 경우
+    var text = document.createTextNode("내용")
+
+    //특정 엘리먼트에 자식으로 추가 
+    element.appendChild(childElement)
+-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<body>
+    <button onclick="doAdd()">Add</button>
+    <div id="list"></div>
+    <script>
+        function doAdd(){
+            // id가 list인 엘리먼트 참조 가져오기 
+            var list = document.querySelector("#list")
+            
+            // h2 태그를 생성하고 id가 list 엘리먼트에 추가하기 
+            var h2Ele = document.createElement("h2")
+
+            // h2 태그에 "동적 생성" 내용을 추가한다(createTextNode)
+            // var txt = document.createTextNode("동적추가")
+            // h2Ele.appendChild(txt)
+
+            h2Ele.innerText = "동적생성"
+
+            // list 엘리먼트에 추가
+            list.appendChild(h2Ele)
+
+        }
+    </script>
+</body>
+</html>

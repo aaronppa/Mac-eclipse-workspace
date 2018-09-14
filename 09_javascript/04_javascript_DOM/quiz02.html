@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="doAdd()">Add</button>
+    <div id="add"></div>
+    <script>
+        var count=1
+        function doAdd(){
+            var div = document.querySelector("#add")
+            var hAdd = document.createElement("h2")
+            hAdd.innerText="추가된 DIV id: child_"+count
+            hAdd.setAttribute("id",`child_${count}`)
+            var delButton = document.createElement("button")
+            delButton.setAttribute("onclick",`doDelete('child_'+${count})`)
+            delButton.innerText="삭제"
+            hAdd.appendChild(delButton)
+            div.appendChild(hAdd)
+            count++
+        }
+
+        function doDelete(id){
+            console.log(`${id}`)
+            var delItem = document.querySelector(`#${id}`)
+            
+            delItem.remove()
+        }
+    </script>
+</body>
+</html>
