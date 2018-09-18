@@ -1,0 +1,128 @@
+<!--  
+	폼 관련 퀴즈 - 1
+	https://drive.google.com/open?id=1QsCQ99zQTBxLo6XVEffSR9D8FH1Hv3MN
+	동영상 다운로드 후 기능 구현하기
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Quiz01</title>
+ </head>
+ <body>
+     <h1>Quiz01</h1>
+     <div>
+         <form name="mForm" action="a.html" onsubmit="return doCheck()">
+        <div>
+            이름<input type="text" name="name" id="name"/>
+        </div>
+        <div>
+            아이디<input type="text" name="id" id="id" />
+        </div>
+        <div>
+            비밀번호<input type="password" name="password" id="password" />&nbsp;
+            비밀번호확인: <input type="password" name="password2" id="password2"/>
+        </div>
+        <div>
+            경력여부<input type="checkbox" name="exp" id="new" />
+            <label for="new">신입</label> &nbsp;
+            <input type="checkbox" name="exp" id="experienced" checked/>
+            <label for="experienced" >경력</label>
+            <select name="selExp" id="selExp">
+                <option value="">선택</option>
+                <option value="3mou">3개월미만</option>
+                <option value="3moo">3개월이상</option>
+                <option value="6moo">6개월이상</option>
+                <option value="1yro">1년이상</option>
+                <option value="2yro">2년이상</option>
+                <option value="4yro">3년이상</option>
+            </select>
+        </div>
+        <div>
+            이메일<input type="email" name="email" id="email" /> 
+            <input type="checkbox" name="subscription" id="subscription" checked/>
+            <label for="subscription">메일 수신</label>
+        </div>
+
+        <button type="submit">확인</button>
+        </form>
+     </div>
+
+     <script>
+        var f = document.mForm
+        
+         function doCheck(){
+             if(f.name.value==""){
+                 alert("이름이 입력되지 않았습니다. 이름을 입력하세요.")
+                 f.name.focus()
+                 return false;
+             }
+
+             if(f.id.value=="" || f.id.value.length<4 || f.id.value.length>8){
+                 alert("ID는 4자 이상 8자 이하여야합니다.")
+                 f.id.focus()
+                 return false
+             }
+
+             if(f.password.value=="") {
+                 alert("패스워드를 입력하세요.")
+                 f.password.select = ""
+                 f.password.focus()
+                 return false
+             }
+
+             if(f.password2.value=="") {
+                alert("패스워드확인을 입력하세요.")
+                f.password2.value = ""
+                f.password2.focus()
+                return false
+             }
+             if(f.password.value!=f.password2.value){
+                 alert("패스워드와 패스워드확인 값이 일치하지 않습니다. 다시입력하세요.")
+                 f.password2.value = ""
+                 f.password.select()
+                 f.password.focus();
+                 return false
+             }
+           
+             if(f.experienced.checked && f.selExp.selectedIndex==0){
+                alert("경력 체크시 경력을 선택하세요.")
+                f.selExp.focus()
+                return false
+             }
+             
+             if(f.subscription.checked && f.email.value==""){
+                 alert("메일 수신 동의시 이메일을 기입하세요.")
+                 return false
+             }
+             
+             alert("성공!")
+
+             return false
+         }
+         
+         console.dir(f.new)
+         f.new.onclick = function(){
+            if(this.checked){
+                f.experienced.checked = false
+                f.selExp.disabled = this.checked
+            } else {
+                f.experienced.checked = true
+            }
+        }
+
+         f.experienced.onclick = function(){
+             if(this.checked){
+                f.new.checked = false
+                 f.selExp.disabled = false
+             } else{
+                 f.selExp.disabled = true
+                 f.new.checked = true
+             }
+         }
+     </script>
+ </body>
+ </html>

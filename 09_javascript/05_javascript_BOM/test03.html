@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+        <script>
+            // DOM이 다 로딩 되지 않았기 떄문에 Null이 출력
+            // var result = document.querySelector("#result")
+            // console.log("result", result)
+            
+            // dom의 정보가 로딩이 된 다음에 호출
+            window.onload = function(){
+                console.log("result", result)
+                result.innerHTML = "문서 로딩후 실행됨..."
+            
+                // h1(result) Element가 클릭될때 경고창 띄우기 
+                var h1Obj = document.querySelector("#result")
+                h1Obj.onclick = function(){
+                    alert("h1 Clicked")
+                }
+
+                // h1(result) Element에 마우스를 올렸을때 경고창 띄우기 
+                h1Obj.onmouseover = function(){
+                    alert("h1 Mouse-Over")
+                }
+            }
+
+
+        </script>
+</head>
+<body>
+    <h1 id="result"></h1>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            position: absolute;
+            background-color: #000;
+            color: antiquewhite;
+            padding: 10px;
+            font-size: 40px;
+            font-weight: bold;
+            width: 600px;
+            height: 400px;
+            text-align: center;
+            line-height: 400px;
+            left: 25%;
+            top: -420px;
+        }
+    </style>
+</head>
+<body>
+    <p><a href="#1" onclick="showSlide()">Slide</a></p>
+    <div id="d1">JavaScript</div>
+    <script>
+        var x = -400
+        var divEle = document.querySelector("#d1")
+        function showSlide(){
+            x+=10
+            divEle.style.top = x+"px"
+            if(x<100){
+                setTimeout(showSlide, 30)
+            } else {
+                x = -400
+            }
+        }
+    </script>
+</body>
+</html>

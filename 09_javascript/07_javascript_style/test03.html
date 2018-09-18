@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: blanchedalmond;
+
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 200px; height: 200px;">
+        <p>DIV</p>
+    </div>
+
+    <script>
+        var divEle = document.querySelector("div")
+        console.dir("width", divEle.style.width)
+        console.dir("height", divEle.style.height)
+        console.dir("background-color", divEle.style.backgroundColor)
+        
+        // style 속성에 적용된 것이 아닌 기본 적용된 CSS 속성 가져오기
+        // console.dir(document)
+        // console.dir(document.defaultView)
+        console.dir(document.defaultView.getComputedStyle(divEle))
+        
+        var cssObj = document.defaultView.getComputedStyle(divEle)
+        console.log("backgroundColor", cssObj.backgroundColor)
+    </script>
+</body>
+</html>

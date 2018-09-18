@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Child Page</h2>
+    <input type="text" id="msg" />
+    <button onclick="doClose()">Close</button>
+
+    <script>
+        function doClose(){
+            // 부모창에 있는  id가 result인 div에 msg를 출력
+            opener.doResult(
+                document.querySelector("#msg").value
+            )
+            self.close()
+        }
+    </script>
+</body>
+</html>

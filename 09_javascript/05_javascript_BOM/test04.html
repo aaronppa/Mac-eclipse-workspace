@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">Click</button>
+    <button id="btn2">Refresh</button>
+    <button id="btn3">Naver</button>
+
+    <script>
+        // Page 주소: Location Object
+        var btn1 = document.querySelector("#btn1")
+        btn1.onclick = function(){
+            console.dir(location)
+            console.log(location.href)
+            console.log(location.host)
+            console.log(location.hostname)
+            console.log(location.port)
+            console.log(location.search)
+        }   
+        
+        // location.reload()를 통한 Refresh button
+        var btn2 = document.querySelector("#btn2") 
+        btn2.onclick = function(){
+            location.reload()
+        }
+
+        // 다른 페이지로 이동
+        // location.href = "http://www.naver.com"
+        var btn3 = document.querySelector("#btn3")
+        btn3.onclick = function(){
+            location.href = "http://www.naver.com"
+        }
+    </script>
+</body>
+</html>

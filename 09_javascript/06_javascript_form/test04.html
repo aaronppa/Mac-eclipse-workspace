@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="a.html" name="mForm">
+        <button type="button" onclick="doAdd()">추가</button>
+        <button type="button" onclick="doDel()">삭제</button>
+        <button type="button" onclick="changeDisabled(false)">활성화</button>
+        <button type="button" onclick="changeDisabled(true)">비활성화</button>
+        <div>
+            <select name="sel" id="sel">
+                <option value="">선택하세요</option>
+                <!-- 
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option> 
+                -->
+            </select>
+        </div>
+    </form>
+
+    <script>
+        function changeDisabled(flag){
+            var f = document.mForm
+            if(flag==true){
+                f.sel.selectedIndex = 0;
+            }
+            f.sel.disabled = flag
+        }
+
+        function doAdd(){
+            var f = document.mForm
+            /*
+            // 1.  자바스크립트 dom 라이브러리 활용
+            var opt = document.createElement("option") // <option></option>
+            opt.value = 1 // <option value="1"></option>
+            var text = document.createTextNode("aaaa") // aaaa
+            opt.appendChild(text) // <option value="1">aaaa</option>
+            // select box에 추가
+            f.sel.appendChild(opt)
+            */
+            
+            /*
+            // 2. javascript 객체 활용
+            console.dir(f.sel.options.length)
+            f.sel.options[f.sel.options.length] = new Option("test","100")
+            */
+
+            // 3. innerHTML 활용
+            f.sel.innerHTML += "<option value='100'>테스트</option>"
+        }
+
+        function doDel(){
+            var sel = document.mForm.sel 
+            // 하나만 남기고 전부 다 삭제하기
+            sel.options.length = 1
+
+            /*
+            // 마지막 삭제
+            sel.options[sel.options.length-1] = null
+            */
+        }
+    </script>
+</body>
+</html>

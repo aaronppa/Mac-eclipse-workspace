@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            navigator
+
+            userAgent: 접속한 사용자의 시스템 정보등을 가져온다. 
+
+            모바일 접근 여보 판단 활용 
+
+        */
+        // console.dir(navigator)
+        console.dir(navigator.userAgent)
+
+        var msg = ""
+        var agent = navigator.userAgent
+        if(agent.indexOf("iPhone")!=-1){
+            msg = "iPhone 접속"
+        } else if(agent.indexOf("android")!=-1){
+            msg = "Android 접속"
+        } else {
+            msg = "PC에서 접속함.. "
+        }
+        alert(msg)
+    </script>
+</body>
+</html>

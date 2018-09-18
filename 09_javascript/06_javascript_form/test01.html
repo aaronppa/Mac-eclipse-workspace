@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>자바스크립트 Form 활용</h2>
+    <form name="mForm" action="a.html" onsubmit="return doAction()">
+        id: <input type="text" id="id" name="id" /><br>
+        pass: <input type="password" id="pass" name="pass" /><br>
+        pass 확인: <input type="password" id="pass2" name="pass2" /><br>
+        <!-- 
+            Submit button을 click했을떄 
+            값을 체크하고 올바르게 입력된 경우만 submit()을 해야한다. 
+            
+            form 태그의 onsubmit 속성을 이용해서 submit이 호출되기 전에 해야 할일을 처리한다.
+            onsubmit="return doAction()"
+            doAction 함수가 false를 결과를 반환하면 submit()이 중단됨. 
+        -->
+        <button>확인</button>
+        <button type="button" onclick="doAction2()">확인2</button>
+    </form>
+
+    <script>
+        function doAction(){
+            alert("submit invoked")
+            
+            // form에 있는 데이터 체크하여 올바르지 않은 경우 return false를 반환
+            var f = document.mForm
+            // var id = f.id;
+            // var pass = f.pass;
+            // var pass2 = f.pass2;
+            
+            // f.id : input창 객체
+            if(f.id.value==""){
+                alert("id가 입력되지 않았습니다. id를 입력하세요.")
+                f.id.focus()
+                return false;
+            }
+            
+            if(f.pass.value==""){
+                alert("가 입력되지 않았습니다. Password를 입력하세요.")
+                f.pass.focus()
+                return false;
+            }
+
+            if(f.pass.value!=f.pass2.value){
+                alert("Password가 일치하지 않습니다. Password를 입력하세요.")    
+                // Pass에 포커스 주고 기존 내용을 선택된 상태로
+                f.pass.focus()
+                f.pass.select()
+
+                //Pass2 확인창에 입력된 내용 지우기 
+                f.pass2.value=""
+    
+                return false;
+            }
+
+            return true;
+        }
+
+        function doAction2(){
+            /*
+                button의 type="button"인 경우에는 
+                입력값이 올바르다면 직접 submit해야 한다. 
+            */
+            var f = document.mForm
+            // var id = f.id;
+            // var pass = f.pass;
+            // var pass2 = f.pass2;
+            
+            // f.id : input창 객체
+            if(f.id.value==""){
+                alert("id가 입력되지 않았습니다. id를 입력하세요.")
+                f.id.focus()
+                return false;
+            }
+            
+            if(f.pass.value==""){
+                alert("가 입력되지 않았습니다. Password를 입력하세요.")
+                f.pass.focus()
+                return false;
+            }
+
+            if(f.pass.value!=f.pass2.value){
+                alert("Password가 일치하지 않습니다. Password를 입력하세요.")    
+                // Pass에 포커스 주고 기존 내용을 선택된 상태로
+                f.pass.focus()
+                f.pass.select()
+
+                //Pass2 확인창에 입력된 내용 지우기 
+                f.pass2.value=""
+    
+                return false;
+            }
+            // form의 액션을 변경
+            f.action = "b.html"
+
+
+            // form 을 submit
+            f.submit()
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quiz01</title>
+    <style>
+        div {
+            position: absolute;
+            background-color: #000;
+            color: antiquewhite;
+            padding: 10px;
+            font-size: 40px;
+            font-weight: bold;
+            width: 600px;
+            height: 400px;
+            text-align: center;
+            line-height: 400px;
+            top: -420px;
+            left: 25%;
+            transition: 1s;
+        }
+
+        .show {
+            top: 100px;
+        }
+
+        .hidden {
+            top: -420px;
+        }
+    </style>
+</head>
+
+<body>
+    <p><a href="#1" onclick="hideSlide()">Previous Slide</a>&nbsp;<a href="#2" onclick="showSlide()">Next Slide</a></p>
+    <div id="d1" class="hidden" style="background-color:forestgreen">Slide 1</div>
+    <div id="d2" class="hidden" style="background-color:rgb(29, 128, 185)">Slide 2</div>
+    <div id="d3" class="hidden" style="background-color:rgb(78, 105, 228)">Slide 3</div>
+    <div id="d4" class="hidden" style="background-color:rgb(196, 38, 72)">Slide 4</div>
+    <div id="d5" class="hidden" style="background-color:rgb(223, 175, 20)">Slide 5</div>
+    <script>
+        var i=0
+        var divEle = document.querySelectorAll("div")
+        
+        function showSlide(nextSlide) {
+            for(let i=0;i<divEle.length;i++){
+                if(divEle[i].className=="hidden"){
+                    divEle[i].className = "show"
+                    break;
+                }
+            }
+        }
+        
+        function hideSlide() {
+            for (let i = divEle.length-1; i >= 0; i--) {
+                if (divEle[i].className == "show") {
+                    divEle[i].className = "hidden"
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

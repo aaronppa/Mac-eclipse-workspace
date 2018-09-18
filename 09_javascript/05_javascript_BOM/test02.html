@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="createPop()">Create</button>
+    <button onclick="movePop()">Move</button>
+    <button onclick="resizePop()">Resize</button>
+
+    <script>
+        var pop;
+        function createPop(){
+            pop = window.open("","","width=400,height=300")
+            
+            //화면을 꽉채운다. 
+            resizePop()
+            pop.onunload = function (){
+                createPop()
+            }
+        }
+
+        function movePop(){
+            // moveTo(): 절대좌표, moveBy(): 상대좌표(현재위치 기준)
+            // pop.moveTo(300,300)
+            pop.moveBy(30,30)
+        }
+
+        function resizePop(){
+            // resizeTo(): , resizeBy():
+            // pop.resizeTo(500, 500)
+            // pop.resizeBy(30,30)
+            pop.resizeBy(screen.width,screen.height)
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>CSS 적용하기</h2>
+    <script>
+        var h2Obj = document.querySelector("h2")
+        h2Obj.onclick = function (){
+            console.dir(this)
+            this.style.border = "5px solid black"
+            // text color
+            this.style.color = "tomato"
+            // background-color --> backgroundColor
+            // this.style["background-color"] = "orange"
+            this.style.backgroundColor = "skyblue"
+            this.style.margin = "30px"
+            this.style.padding = "30px"
+            this.style.height = "100px"
+            this.style.borderRadius = "30px"
+            this.style.textAlign = "center"
+            this.style.lineHeight = "100px"
+
+        }
+    </script>
+</body>
+</html>

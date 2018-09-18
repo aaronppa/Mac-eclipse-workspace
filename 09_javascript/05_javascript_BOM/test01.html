@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="openPop(1)">Popup1</button>
+    <button onclick="openPop(2)">Popup2</button>
+    <button onclick="openPop(3)">Popup3</button>
+    <button onclick="openPop(4)">Popup4</button>
+    
+    <div id="result">
+        자식창의 메세지 : 
+    </div>
+
+    <script>
+        // window.open() : pop a new window
+        function openPop(comm){
+            switch(comm){
+                case 1:
+                    // parameters(arguments): (창에 보여질 페이지 URL, 창의 이름(target), option)
+                    window.open(
+                        "../04_javascript_DOM/test01.html", "pop1", "width=400,height=300"
+                    )
+                    break;
+
+                case 2:
+                    // target에 아무것도 주지 않으면, popup창이 중복되지 않고 계속 뜨게 된다. 
+                    window.open(
+                        "../04_javascript_DOM/test01.html", "", "width=400,height=300"
+                    )
+                    break;
+
+                case 3:
+                    console.log(screen.width, screen.height)
+                    var left = (screen.width - 400) / 2
+                    var top = (screen.height - 300) / 2
+
+                    window.open(
+                        "../04_javascript_DOM/test01.html", "", `width=400,height=300,left=${left},top=${top}`
+                    )
+                    break;
+
+                case 4:
+
+                    window.open(
+                        "./test01_child.html", "", `width=400,height=300,left=${left},top=${top}`
+                    )
+                    break;
+            }
+        }
+
+        function doResult(msg){
+            var result = document.querySelector("#result")
+            result.innerHTML += msg
+        }
+    </script>
+</body>
+</html>

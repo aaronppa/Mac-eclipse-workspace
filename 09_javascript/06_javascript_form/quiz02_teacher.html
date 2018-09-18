@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- 
+	폼관련 퀴즈 - 2
+	https://drive.google.com/open?id=1XmEYjPruuLNhy_N4DiNvTO5ecoCTpBX5
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	* { margin: 0px; padding: 0px; }
+	
+	ul { 
+		list-style: none;
+		margin: 20px;
+		width: 120px;
+		height: 150px;
+ 		float: left; 
+	}
+	
+	li {
+		background: #888;
+		width: 100%;
+		height: 30px;
+		padding: 2px;
+	}
+	li > label {
+		display: block;
+	}
+	#result {
+ 		float: left; 
+	    border: 5px solid tomato;
+	    margin-top: 20px;
+	    width: 500px;
+	    height: 60px;
+		box-sizing: border-box;
+		line-height: 50px;
+	}
+	
+	span {
+		padding-left: 10px;
+	}
+	
+	.close {
+		margin-left: 2px;
+		vertical-align: text-bottom;
+	}
+</style>
+</head>
+<body>
+<ul id="memberUL">
+	<li>
+		<label><input type="checkbox" value="JAVA" />JAVA</label>
+	</li>
+	<li>
+		<label><input type="checkbox" value="SQL" />SQL</label>
+	</li>
+	<li>
+		<label><input type="checkbox" value="HTML" />HTML</label>
+	</li>
+	<li>
+		<label><input type="checkbox" value="CSS" />CSS</label>
+	</li>
+	<li>
+		<label><input type="checkbox" value="JAVASCRIPT" />JAVASCRIPT</label>
+	</li>
+</ul>
+
+<div id="result"></div>
+
+<script>
+	// checkbox 초기 클릭 이벤트 설정하기
+	var ckArr = document.querySelectorAll("input[type=checkbox]")
+	for (var obj of ckArr) {
+		obj.onclick = function () {
+			// 체크박스 체크 시 추가 및 삭제
+			if (this.checked) add(this.value); 
+			else              del(this.value);
+		}
+	}
+
+	// 체크박스 체크시 아이템 표시하기
+	function add(val) {
+		var result = document.querySelector("#result");
+		var html = `<span data-val='${val}'>${val}
+			<button class="close" onclick="allDel(this, '${val}')">X</button>
+			</span>`;
+			result.innerHTML += html
+		}
+		
+	// 체크박스 해제시 아이템 삭제하기
+	function del(val) {
+		document.querySelector(`span[data-val=${val}]`).remove();
+	}
+	
+	// 아이템 X 버튼 클릭 시 아이템 삭제 및 체크박스 해제하기
+	function allDel(btn, val) {
+		// 화면 제거
+		btn.parentNode.remove();
+		// 체크 상태 변경
+		document.querySelector(`input[value='${val}'`).checked = false;
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Accordion</title>
+    <style>
+        h3, div {
+            margin: 0px;
+            width: 80%;
+            border: 2px solid darkcyan;
+            box-sizing: border-box;
+        }
+        h3{
+            background-color: peru;
+        }
+        div{
+            position: relative;
+            height: 100px;
+            overflow: hidden;
+
+            transition: 1s;
+        }
+        .hidden{
+            opacity: 0; height: 0px;
+        }
+        .show{
+            opacity: 1; height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Accordion Function</h2>
+    <h3>오늘은 자바스크립트 CSS 적용하기</h3>
+    <div class="hidden">
+            오늘은 자바스크립트 CSS 적용하는날 <br>
+            오늘은 자바스크립트 CSS 적용하는날 <br>
+            오늘은 자바스크립트 CSS 적용하는날 
+    </div>
+    <script>
+        //Accordion Function
+        var h3Ele = document.querySelector("h3")
+        var divEle = document.querySelector("div")
+        h3Ele.onclick = function (){
+            console.log(divEle.className)
+            if(divEle.className =="hidden"){
+                divEle.className = "show"
+            } else {
+                divEle.className = "hidden"
+            }
+        }
+    </script>
+</body>
+</html>

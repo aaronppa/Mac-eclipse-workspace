@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        <a href="#1" id="link1">크게</a>
+        <a href="#2" id="link2">작게</a>
+    </p>
+
+    <div>
+        <p>
+            마술사<br>
+            300백년 전 유명한 악당이었던 에더마스크 그가 형을 찾아가고 있는 여정 
+        </p>
+    </div>
+
+    <script>
+        var link1 = document.querySelector("#link1")
+        var link2 = document.querySelector("#link2")
+        
+        var divpEle = document.querySelector("div>p")
+        var cssStyleObj = document.defaultView.getComputedStyle(divpEle)
+            console.dir(divpEle.style)
+        link1.onclick = function(){
+            divpEle.style.fontSize = parseInt(cssStyleObj.fontSize) + 2 + "px";
+        };
+
+        link2.onclick = function(){
+            divpEle.style.fontSize = parseInt(cssStyleObj.fontSize) - 2 + "px";
+        };
+
+    </script>
+    
+</body>
+</html>

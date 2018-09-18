@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quiz02</title>
+<style>
+    *{
+        margin-top: 30px
+        
+    }
+
+    body{
+        text-align: center;
+    }
+
+    div.board{
+        display: block;
+        margin: auto;
+        width: 900px; height: 600px;
+        background-color: orange;
+    }
+
+    div.time{
+        padding-top: 10px;
+        font-size: 40px;
+        color: white;
+        font-weight: bold;
+    }
+
+    div.question > p{
+        padding-top: 40px;
+        font-size: 100px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    div.btn{
+      margin-top: 5px;
+    }
+    div.btn > .button {
+        width: 130px; height: 70px;
+        line-height: 70px;
+        font-size: 30px;
+        margin: 10px;
+    }
+    div.result{
+        text-align: right;
+        position: relative;
+        top: 112px;
+        right: 30px;
+        bottom: 10px;
+        font-size: 30px;
+    }
+</style>
+</head>
+
+<body>
+    <div class="board">
+        <div class="time">
+            <p>10</p>
+        </div>
+        <div class="question">
+            <p>hello</p>
+        </div>
+        <div class="btn">
+            <button class="button" type="button" id="correct">정답</button>
+            <button class="button" type="button" id="pass">통과</button>
+        </div>
+        <div class="result">
+            정답개수:&nbsp;<i id="num"></i>개 맞춤
+        </div>
+    </div>
+</body>
+</html>

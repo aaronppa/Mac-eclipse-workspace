@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            margin-top: 50px;
+            width: 500px; height: 300px; font-size: 20px;
+            border: 5px solid tomato;
+        }
+    </style>
+</head>
+<body>
+    <a href="#1" onclick="show('music')">Music</a>
+    <a href="#1" onclick="show('movie')">Movie</a>
+    <div id="music">
+        <h2>히든싱어</h2>
+        <p>린의 노래를 남자가 부릅니다.</p>
+    </div>
+    <div id="movie" style="display:none;">
+        <h2>원피스</h2>
+        <p>루피 기어5~</p>
+    </div>
+    
+    <script>
+        var movieEle = document.querySelector("#movie")
+        var musicEle = document.querySelector("#music")
+        movieEle.style.display="none"
+        function show(divId){
+            movieEle.style.display = "none"
+            musicEle.style.display = "none"
+            // divId: music, movie
+            if(divId =="music") {
+                musicEle.style.display = "block"
+            } else {
+                movieEle.style.display = "block"
+            }
+        }
+    </script>
+</body>
+</html>

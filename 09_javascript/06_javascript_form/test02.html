@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form name="mForm">
+        <button type="button" onclick="formCheck()">확인</button>
+        <div>
+            <!-- checkbox 같은 경우 value 값을 설정하지 않으면 default가 "on" 이다.  -->
+            <!-- <label> -->
+            <input type="checkbox" id="all" name="all" value="all"
+                    onclick="doCheck(this.checked)"
+            />
+            <label for="all">
+                전체
+            </label>
+        </div>
+        <div>
+            오늘 점심 메뉴?
+                <div>
+                    <input type="checkbox" id="m1" name="menu" value="1">
+                    <label for="m1">불고기</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="m2" name="menu" value="2">
+                    <label for="m2">불백</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="m3" name="menu" value="3">
+                    <label for="m3">쭈꾸미</label>
+                </div>
+        </div>
+    </form>
+    <script>
+        // ckStatus는 id="all" 인 체크박스의 체크 상태(true/false)
+        function doCheck(ckStatus){
+            // id가 all인 체크박스가 체크된 상태이면 나머지 체크박스를 체크된 상태로 변경 
+            // 체크가 해제된 상태이면 나머지 체크박스를 체크해제된 상태로 변경 
+            var f = document.mForm
+            var chkArr = document.querySelectorAll("input[name='menu']")
+            // all 체크박스 객체 접근
+            // var ckStatus = true
+
+            // if(f.all.checked){
+            //     // 나머지 체크박스를 체크된 상태로 변경 
+            //     alert("전체 체크박스 체크됨")
+            //     // name="menu"인 체크박스들을 체크된 상태로 변경
+            //     for(let i=0;i<chkArr.length;i++){
+            //         chkArr[i].checked = true
+            //     }
+            // } else {
+            //     // 나머지 체크박스를 체크해제된 상태로 변경 
+            //     alert("전체 체크박스 해제됨")
+            //     // name="menu"인 체크박스들을 체크해제된 상태로 변경
+            //     for(let i=0;i<chkArr.length;i++){
+            //         chkArr[i].checked = false
+            //     }
+            
+            
+            // for(let i=0;i<chkArr.length;i++){
+            //         chkArr[i].checked = ckStatus
+            //     }
+            // }
+            for(let i=0;i<chkArr.length;i++){
+                    // chkArr[i].checked = f.all.checked
+                    chkArr[i].checked = ckStatus
+                    
+                }
+            }
+        
+
+        function formCheck(){
+            // name="menu"인 checkbox들이 체크되어 있는 카운트를 센다. 
+            // 만약에 카운트가 ==0 경고창을 띄운다. 
+
+            var ckArr = document.querySelectorAll("input[name='menu']")
+            
+            let cnt=0
+            let msg = ""
+            for(let i = 0; i<ckArr.length;i++){
+                if(ckArr[i].checked){
+                    cnt++
+                    msg += ckArr[i].value + "\n"
+                    // break;
+                    // return;
+                }
+            }
+            if(cnt==0){
+                alert("체크된 메뉴가 없습니다. 메뉴를 선택하세요.")
+            } else {
+                alert(msg)
+            }
+        }
+    </script>
+</body>
+</html>
