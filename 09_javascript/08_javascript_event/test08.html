@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>onfocus/onblur</title>
+</head>
+<body>
+    <input type="text" id="msg">
+    <div id="result"></div>
+
+    <script>
+        var msg = document.querySelector("#msg")
+        var result = document.querySelector("#result")
+        msg.onfocus = function(e){
+            result.innerHTML = "Focus Event Invoked"
+        }
+        msg.onblur = function(e){
+            if(msg.value.length!=6){
+                alert("6자리 입력되어야 합니다.")
+            }
+            result.innerHTML = "Focus Event Existed"
+        }
+    </script>
+</body>
+</html>

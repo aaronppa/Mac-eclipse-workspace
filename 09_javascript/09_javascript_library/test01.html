@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./jQuery.js"></script>
+    <title>jQuery Intro</title>
+</head>
+<body>
+    <button>NO.1</button>
+    <button>NO.2</button>
+    <button>NO.3</button>
+
+<div id="a">아이디 접근</div>
+<div class="b">클래스 접근</div>
+<div>태그 접근</div>
+
+
+    <script>
+        /*
+        var btn1 = document.querySelectorAll("button:nth-child(1)")[0]
+        btn1.addEventListener("click",function(e){
+            alert("버튼 클릭되었습니다.")
+        })
+        */
+
+        /*
+        var btn1 = $("button:nth-child(1)")[0]
+        btn1.addEventListener("click",function(e){
+            var div = document.querySelector("#a")
+            div.innerHTML = btn1.innerText
+        })
+        */
+
+        // improved coding
+        var btn1 = $("button:nth-child(1)")[0]
+        btn1.addEventListener("click",function(e){
+            // var div = document.querySelector("#a")
+            // var div = $("#a")[0]
+            // div.innerHTML = btn1.innerHTML
+            // var div = document.querySelectorAll("div")
+            // for(var i = 0;i<div.length;i++){
+            //     div[i].innerHTML = btn1.innerHTML;
+            // }
+            
+            /*
+            // jQuery.js -> return
+            var div = $("div")
+            div.html(btn1.innerHTML)
+            alert(div.html()) // div 중에서 첫번째 태그의 innerHTML 반환 
+            */
+            alert($("div").html(btn1.innerHTML).html())
+        })
+
+        // var $arr = jQuery("a")
+        // var $arr = $("a")
+        // alert($arr.length)
+    </script>
+</body>
+</html>

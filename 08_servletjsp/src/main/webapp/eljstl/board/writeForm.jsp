@@ -60,7 +60,7 @@
 	<div>
 	<hr>
 	<input class="button" type="submit" value="등록"/>
-	<a href="list.jsp" class="button" type="button">목록</a>
+	<a href="/08_servletjsp/servlet/eljstlboard/list.do" class="button" type="button">목록</a>
 	</div>
 	</form>
 </body>

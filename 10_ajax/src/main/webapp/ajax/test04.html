@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script  src="https://code.jquery.com/jquery-3.3.1.js"
+             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+             crossorigin="anonymous"></script>
+<title>Ajax Parameter</title>
+</head>
+<body>
+	<h2>Ajax Parameter</h2>
+	<button id="btn1">GET</button>
+	<button id="btn2">POST</button>
+	<div id="result"></div>
+	<hr>
+	<script>
+		$("#btn1").click(function(){
+			var xhr = new XMLHttpRequest()
+			xhr.onreadystatechange = function(){
+				if (xhr.readyState ==4){
+					if (xhr.status ==200){
+						$("#result").html(xhr.responseText)
+					}
+				}
+			}
+			xhr.open("Get","/10_ajax/ajax/test04?msg=test", true)
+			xhr.send()
+		})
+		
+		$("#btn2").click(function(){
+			var xhr = new XMLHttpRequest()
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState==4){
+					if(xhr.status==200){
+						$("#result").html(xhr.responseText)
+					}
+				}
+			}
+			xhr.open("post","/10_ajax/ajax/test04", true)
+			
+			// POST 방식일 경우 파라미터를 넘기기 위해서 헤더 정보를 추가해야 한다.
+			xhr.setRequestHeader("content-Type","application/x-www-form-urlencoded")
+			
+			// Post 방식일 경우 파라미터를 send의 parameter에 넣는다. 
+			xhr.send("msg=test")
+		})
+	</script>
+</body>
+</html>

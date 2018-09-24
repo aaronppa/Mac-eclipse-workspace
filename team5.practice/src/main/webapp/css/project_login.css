@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'Shadows Into Light', cursive;
+  font-style: normal;
+  font-weight: 300;
+  src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(https://fonts.gstatic.com/s/sourcesanspro/v11/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdr.ttf) format('truetype');
+}
+* {
+  font-family: 'Shadows Into Light', cursive;		
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+}
+body {
+  font-family: 'Shadows Into Light', cursive;
+  color: white;
+  font-weight: 300;
+}
+
+body :-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  font-family: 'Shadows Into Light', cursive;
+  font-weight: 300;
+}
+.wrapper_login {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 500px;
+  margin-top: -200px;
+  overflow: hidden;
+}
+.wrapper_login.form-success .container_login h1 {
+  -webkit-transform: translateY(85px);
+          transform: translateY(85px);
+}
+.container_login {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 80px 0;
+  height: 500px;
+  text-align: center;
+}
+.container_login h1 {
+  font-size: 40px;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-put;
+  font-weight: 200;
+}
+
+button {
+  font-family: 'Shadows Into Light', cursive;	
+  font-weight: bold;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: 0;
+  background-color: white;
+  border: 0;
+  padding: 10px 15px;
+  color: #0B173B;
+  border-radius: 3px;
+  width: 250px;
+  cursor: pointer;
+  font-size: 18px;
+  transition-duration: 0.25s;
+  margin : 10px;
+}
+#signup{
+  background-color :#A9F5E1;
+}
+#start{
+  background-color : #04B4AE;
+}
+
+button:hover {
+  background-color: #f5f7f9;
+}
+
+
+
+
+

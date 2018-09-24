@@ -1,0 +1,80 @@
+
+#sideInfo{
+	text-indent: 10px;
+	background : #fbfbfb;
+	width: 170px;
+	display: block;
+	box-shadow: 5px 5px 5px 5px #d0d0d0;
+	border-radius: 8px;
+	line-height: 30px;
+	min-width: 100px;
+	margin: 30px;
+}
+
+
+.head{
+	background: #f0f0f2;
+	color : #4d4d4d;
+	font-weight: 900;
+	border-radius: 8px;
+	text-indent: 25px;
+}
+.list ul{
+	list-style: none;
+	margin:0px; padding:0px;
+
+}
+
+
+.list ul li{
+	text-indent: 25px;
+}
+
+.list div{
+	border-bottom: 2px solid #f0f0f2;
+}
+.list div:last-child{
+	border: none;
+}
+
+
+r{
+	font-weight:900;
+	color: #ffffff;
+	border-radius: 9px;
+	background: #796f7b;
+	padding: 3px
+}
+
+
+progress {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  width: 100px;
+  height: 20px;
+
+  /* Firefox */
+  border: none;
+  background: #EEE;
+  border-radius: 4px;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+}
+
+progress::-webkit-progress-bar {
+  background: #EEE;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+  border-radius: 4px;
+}
+
+progress::-webkit-progress-value {
+  background-color: #89bfc0;
+  border-radius: 4px;
+}
+
+progress::-moz-progress-bar {
+  background-color: #89bfc0;
+  border-radius: 4px;
+}

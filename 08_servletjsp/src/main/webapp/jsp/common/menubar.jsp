@@ -33,6 +33,6 @@
   </nav>
 </header>
 <!-- /header -->
-<script>
+<!-- <script>
 	var navigation = $('#nav-main').okayNav();	
-</script>
+</script> -->

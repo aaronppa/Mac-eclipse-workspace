@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event 전파</title>
+    <style>
+        div{
+            border: 3px solid #334455;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>이벤트 전파 방식 이해</h2>
+    <div id="outer">
+        <div id="inner">
+            <div id="child">
+                Event 전파 
+            </div>
+        </div>
+    </div>
+    <div id="debug"></div>
+    <script>
+        // 이벤트 전파의 개념과 중지
+        // addEventListener(type, listener, 전파방식(true/false(default))
+        // Capturing, Bubbling(자식->부모)
+        var outer = document.querySelector("#outer")
+        var inner = document.querySelector("#inner")
+        var child = document.querySelector("#child")
+
+        outer.addEventListener("click",function(e){
+            print("outer")
+        })
+        inner.addEventListener("click",function(e){
+            print("inner")
+        })
+        child.addEventListener("click",function(e){
+            print("child")
+
+            // 이벤트의 전파를 중지시킨다. 
+            e.stopPropagation()
+        })
+
+        function print(msg){
+            var d = document.querySelector("#debug")
+            d.innerHTML += msg + "<br>"
+        }
+    </script>
+</body>
+</html>

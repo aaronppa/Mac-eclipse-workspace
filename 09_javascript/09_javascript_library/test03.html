@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery Test03</title>
+    <script src="./jquery.js"></script>
+</head>
+<body>
+    <button>Set</button>
+    <button>Get</button>
+    ID: <input type="text" name="id" size="20">
+
+    <script>
+        var btn1 = $("button:nth-child(1)")[0]
+        btn1.addEventListener("click", function(e){
+            // $("input[name='id']")[0].value = "Setting...."
+            $("input[name='id']").val("Setting....");
+
+        })
+
+        var btn2 = $("button:nth-child(2)")[0]
+        btn2.addEventListener("click", function(e){
+            alert($("input[name='id']").val());
+        })
+    </script>
+</body>
+</html>

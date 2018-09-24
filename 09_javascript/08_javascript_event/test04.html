@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event Object</title>
+    <style>
+            button{
+                width: 200px; height: 200px;
+                background-color: palegoldenrod;
+                color: red;
+                font-size :25px;
+            }
+            </style>
+</head>
+<body>
+    <h2>Event Object</h2>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <script>
+        var btnList = document.querySelectorAll("button")
+        for(var i=0; i<btnList.length; i++){
+            btnList[i].onclick = function(e){
+                // console.dir(e)
+                var obj = e.target
+                // console.log(obj.id, obj.innerText)
+                
+                // 좌표값 활용
+                
+                // 이벤트 발생 객체내 클릭한 위치와의 차이 - e의 객체
+                // console.log(e.offsetX, e.offsetY)
+                
+                // 전체 페이지 객체의 시작 좌표 (Left-Top Corner) - e.target 객체
+                // console.log(obj.offsetLeft, obj.offsetTop)
+
+                // 전체페이지 기준 버튼내에서 클릭한 좌표 - e의 객체
+                console.log("clientX: "+e.clientX, "clientY: "+e.clientY)
+                
+                // 모니터 스크린 기준 버튼내 클릭한 좌표 - e의 객체
+                console.log("screenX: "+e.screenX, "screenY: "+e.screenY)
+            }
+            
+        }
+    </script>
+</body>
+</html>

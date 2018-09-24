@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>이벤트 설정 방식</title>
+</head>
+<body>
+    <h2>이벤트 설정 방식</h2>
+    <button id="btn" onclick="console.log('0')">Click</button>
+
+    <script>
+        var btn = document.querySelector("#btn")
+        function fn1(){
+            console.log("fn1")
+            // Event 설정 제거 
+            console.dir(this) // 이벤트 함수내에서의 this는 button 객체를 나타낸다. 
+            this.removeEventListener("click",fn1)
+        }
+        function fn2(){console.log("fn2")}
+        
+        /* 이전 이벤트들이 덮어쓰기가 되고 최종 함수만 호출
+        btn.onclick=fn1
+        btn.onclick=fn2
+        */
+
+        // 표준 이벤트 방식으로 설정하기 - 이벤트 중첩 설정이 가능함.
+        btn.addEventListener("click",fn1)
+        btn.addEventListener("click",fn2)
+    </script>
+</body>
+</html>

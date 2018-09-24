@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./jquery.js"></script>
+    <title>jQuery</title>
+</head>
+<body>
+    <button>NO.1</button>
+    <button>NO.2</button>
+    <button>NO.3</button>
+    
+    <div id="a">아이디 접근</div>
+    <div class="b">클래스 접근</div>
+    <div>태그 접근</div>
+
+    <script>
+        var btn1 = $("button:nth-child(1)")[0]
+        btn1.addEventListener("click",function(){
+            $("div").text("<strong>변경됨</strong>")
+
+            // div.innerText = "<strong>변경됨</strong>"
+        })
+        var btn2 = $("button:nth-child(2)")[0]
+        btn2.addEventListener("click",function(){
+            alert($("div").text());
+        })
+        var btn3 = $("button:nth-child(3)")[0]
+        btn3.addEventListener("click",function(){
+            /*
+            $("div").text("<strong>변경됨</strong>")
+            alert($("div").text());
+            */
+           alert($("div").text("<strong>변경됨</strong>").text())
+        })
+    </script>
+</body>
+</html>

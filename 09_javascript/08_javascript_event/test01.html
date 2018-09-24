@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event Test01</title>
+</head>
+<body>
+    <h2>고전 이벤트 설정 방식</h2>
+    <button onclick="fn1()">Button 1</button> <!-- 이방식은 옛날 방식이고 특별한 일이 아니면 권장하지 않음 -->
+    <button id="btn">Button 2</button>
+
+    <script>
+        function fn1(){
+            console.log("fn1 호출")
+        }
+        
+        function fn2(){
+            console.log("fn2 호출")
+        }
+        var btn = document.querySelector("#btn")
+        btn.onclick = fn2
+
+        
+    </script>
+</body>
+</html>

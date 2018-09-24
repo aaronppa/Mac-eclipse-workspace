@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event Object: Mouse Event</title>
+    <style>
+        h2{
+            font-size: 20px;
+            font-weight: bold;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            border: 2px solid #334455;
+        }
+
+        #debug{
+            height: 500px;
+            overflow: auto;
+            font-size: 20px;
+            border: 2px solid #334455;
+        }
+    </style>
+</head>
+<body>
+    <h2>Mouse Event</h2>
+    <div id="debug"></div>
+
+    <script>
+        var h2Ele = document.querySelector("h2")
+        h2Ele.addEventListener("mouseenter", function(e){
+            print("Mouse Entered into the box")
+        })
+        h2Ele.addEventListener("mouseleave", function(e){
+            print("Mouse left")
+        })
+        h2Ele.addEventListener("mousedown", function(e){
+            print("Mouse Clicked")
+        })
+        h2Ele.addEventListener("mouseup", function(e){
+            print("Mouse up")
+        })
+        h2Ele.addEventListener("mousemove", function(e){
+            // print("Mouse is moving")
+            var obj = e.target
+            var left = obj.offsetLeft
+            var top = obj.offsetTop
+            var ox = e.offsetX
+            var oy = e.offsetY
+            var cx = e.clientX
+            var cy = e.clientY
+            print(
+                `left:${left}, top:${top}, ox:${ox}, oy:${oy}, cx: ${cx}, cy: ${cy}`
+                )
+        })
+
+        // print("a")
+        // print("b")
+        // print("c")
+        function print(msg){
+            var debug = document.querySelector("#debug")    
+            // 마지막 출력실행이 맨 위에 나오게 하기 
+            debug.innerHTML = msg + "<br>" + debug.innerHTML
+        }
+    </script>
+</body>
+</html>

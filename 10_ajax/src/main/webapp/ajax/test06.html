@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="./jquery.js"></script>
+</head>
+<body>
+	<button>호출하기</button>
+	<hr>
+	<div id="result"></div>
+	
+	<script type="text/javascript">
+		$("button").click(function(){
+			var name = "a";
+			var age = 21;
+			var addr = "bbb"
+			$.ajax({
+				/* type: "GET",  */
+				url: "/10_ajax/ajax/test04",
+				/* data: "name="+name+"&age="+age+"&addr="+addr, */
+				data: "msg=hello",
+				/* async: true, */
+				/* dataType: "json", */
+				success: function(data){
+					$("#result").html(data);
+				}
+				
+			});
+		});
+	</script>
+</body>
+</html>

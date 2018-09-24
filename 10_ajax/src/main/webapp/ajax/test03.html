@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script  src="https://code.jquery.com/jquery-3.3.1.js"
+             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+             crossorigin="anonymous"></script>
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>Ajax Communication</h2>
+	<button>Invoke</button>
+	<hr>
+	<div id="result"></div>
+	<script>
+		$("button").click(function(){
+			var xhr = new XMLHttpRequest()
+			xhr.onreadystatechange = function(){
+			    if(xhr.readyState==4){
+				if(xhr.status ==200){
+				    $("div#result").html(xhr.responseText)
+				}
+			    }
+			}
+			xhr.open("GET", "/10_ajax/ajax/test03", true)
+			xhr.send()
+		})
+	</script>
+</body>
+</html>

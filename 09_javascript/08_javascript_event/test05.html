@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event Object: Force Event</title>
+    <style>
+            button{
+                width: 200px; height: 200px;
+                background-color: palegoldenrod;
+                color: red;
+                font-size :25px;
+            }
+            </style>
+</head>
+<body>
+    <h2>Force Event</h2>
+    <button>Click</button>
+    <span>0</span>
+
+    <script>
+        var btn = document.querySelector("button")
+        var span = document.querySelector("span")
+        
+        btn.addEventListener("click", function(){
+            // span 의 숫자를 하나 증가
+            span.innerText = parseInt(span.innerText)+1
+        })
+
+        // 이벤트 강제 호출...
+        setInterval(function(){ btn.click() },1000)
+    </script>
+</body>
+</html>

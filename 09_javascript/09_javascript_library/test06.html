@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./jQuery.js"></script>
+    <title>jQuery Summary</title>
+</head>
+<body>
+    <button>Click</button><br>
+    <input type="text" id="msg">
+    <div>태그 접근</div>
+
+    <script>
+        // Set button click event
+        $("button").click(function(){
+            $("div").text($("input#msg").val())
+            })
+
+        // click 시 id가 msg인 input 창에 입력된 value 값을 
+        // div 태그의 innerText로 설정합니다. 
+    </script>
+</body>
+</html>

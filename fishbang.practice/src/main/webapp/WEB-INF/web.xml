@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>fishbang.practice</display-name>
+  
+  <!-- 서블릿과 특정 가상 경로를 연결하자.. 
+  	servlet-name : 논리적 이름(별칭)
+  	servlet-class: 패키지 포함 클래스 이름
+  	url-pattern: 경로지정	
+  	
+  	예 : /servlet/basic/test01 호출하려면??
+  	http://localhost:8000/웹프로젝트명/servlet/basic/test01
+  	http://localhost:8000/08_servletjsp/servlet/basic/test01
+  	
+  -->
+  <servlet>
+  	<servlet-name>test01</servlet-name>
+  	<servlet-class>kr.co.mlec.servlet.basic.Test01</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>test01</servlet-name>
+  	<url-pattern>/servlet/basic/test01</url-pattern>
+  </servlet-mapping>
+  
+  <filter>
+  	<filter-name>auth</filter-name>
+  	<filter-class>kr.co.mlec.filter.AuthFilter</filter-class>
+  	<init-param>
+  		<param-name>pages</param-name>
+  		<param-value>
+  			/main.do;
+  			/login/login-form.do;
+  			/login/login.do;
+  			/board/list.do
+  		</param-value>
+  	</init-param>
+  </filter>
+  
+  <filter>
+  	<filter-name>execTime</filter-name>
+  	<filter-class>kr.co.mlec.filter.ExecTimeFilter</filter-class>
+  </filter>
+
+  <filter>
+  	<filter-name>one</filter-name>
+  	<filter-class>kr.co.mlec.filter.One</filter-class>
+  </filter>
+  
+  <filter>
+  	<filter-name>encoding</filter-name>
+  	<filter-class>kr.co.mlec.filter.EncodingFilter</filter-class>
+  </filter>
+
+  <filter>
+  	<filter-name>two</filter-name>
+  	<filter-class>kr.co.mlec.filter.Two</filter-class>
+  	<init-param>
+  		<param-name>server-ip</param-name>
+  		<param-value>192.168.0.170</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>server-port</param-name>
+  		<param-value>8000</param-value>
+  	</init-param>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>auth</filter-name>
+  	<url-pattern>*.do</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+  	<filter-name>one</filter-name>
+  	<url-pattern>*.do</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+  	<filter-name>two</filter-name>
+  	<url-pattern>*.do</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+  	<filter-name>execTime</filter-name>
+  	<url-pattern>*.do</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+  	<filter-name>encoding</filter-name>
+  	<url-pattern>*.do</url-pattern>
+  </filter-mapping>
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
+
+
+
+
+
+
+
+

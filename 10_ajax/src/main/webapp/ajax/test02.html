@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--  
+	Ajax를 구성하는 기술들..
+	
+	 - CSS, JavaScript, DOM, XMLHttpRequest
+ -->
+<html>
+<head>
+<meta charset="UTF-8">
+<script  src="https://code.jquery.com/jquery-3.3.1.js"
+             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+             crossorigin="anonymous"></script>
+<title>AJAX</title>
+
+</head>
+<body>
+	<h2>Ajax Communication Practice</h2>
+	<button>Invoke</button>
+	<hr>
+	<div id="result"></div>
+	
+	<script>
+		$("button").click(function(e){
+			console.log("Starting Ajax invoke...")
+			/*
+				Ajax 비동기 호출 
+				 - 클라이언트는 서버에 요청하고 응답이 올때까지 기다리는 것이 아닌
+				   비동기적으로 클라이언트에서 작업을 별로 수행가능하다. 
+				 - 화면의 새로고침 없이 특정한 부분을 찾아서 변경할 수 있다.   
+			*/
+			
+			// 1 단계: XMLHttpReqeust 객체 얻기
+			var xhr = new XMLHttpRequest()
+			console.log(xhr.readyState) // readyState == 0; --> 아무것도 하지 않았을때 state는 0 
+			
+			// 비동기 방식으로 서버의 결과를 받음으로..
+			xhr.onreadystatechange = function(){
+				console.log(xhr.readyState)
+				/* 
+					xhr.readyState
+					0: xhr 생성시
+					1: open 함수
+					2: send 함수
+					3: 서버와 데이터 주고 받는 중
+					4: 서버에서 데이터가 다 왔을 때 
+				*/
+				
+				// 서버의 응답이 완료되었을 때..: 에러, 정상 수행... 등 상황이 있다.. 
+				if(xhr.readyState == 4) {
+					// 정상 수행시 status == 200
+					console.log(xhr.status)
+					if(xhr.status==200){
+						// xhr.responseText: 응답된 결과...
+						$("div#result").html(xhr.responseText)
+					} // if status
+					
+				} // if readyState
+				else {
+					// 처리중 이미지 자리 
+				}
+			
+			} // onreadystatechange
+			
+			// 2 단계: 서버에 요청할 페이지를 정보 설정하기 
+			// Http protocol 사용 방식은 동일함
+			// 비동기호출(true/false)
+			xhr.open("GET","hello.jsp", true)
+			
+			// 3 단계: 서버 데이터 주고 받기
+			xhr.send()
+			
+			
+		})
+		
+	</script>
+</body>
+</html>
+

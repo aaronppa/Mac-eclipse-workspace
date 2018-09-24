@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./jquery.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <button>Set</button>
+    <button>Get</button>
+    <div>CSS Style</div>
+
+    <script>
+        $("button:nth-child(1)").click(function(e){
+            // el.style["background"] = "..."
+            // el.style["color"] = ""
+
+            // $("div").css("color", "white")
+            // $("div").css("background", "black")
+            // $("div").css("font-size", "50px")
+            // $("div").css("border", "5px solid black")
+
+            $("div").css({
+                "color": "white",
+                "background": "black",
+                "font-size": "50px"
+            })
+            $("div").css("border", "5px solid black")
+        })
+
+        $("button:nth-child(2)").click(function(e){
+            alert($("div").css("color"))
+        })
+    </script>
+</body>
+</html>
