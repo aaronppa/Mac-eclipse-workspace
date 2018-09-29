@@ -5,9 +5,9 @@
 
  <div class="menu" >
     <ul>
-      <li class="select"><a href="#">어종별 대물 랭킹</a></li>
-      <li class="unselect"><a href="#">전체 랭킹</a></li>
-      <li class="unselect"><a href="#">도감 수집도 랭킹</a></li>
+      <li class="select"><a href="../rank/rankingMain1.jsp">어종별 대물 랭킹</a></li>
+      <li class="unselect"><a href="../rank/rankingMain3.jsp">전체 랭킹</a></li>
+      <li class="unselect"><a href="../rank/rankingMain4.jsp">도감 수집도 랭킹</a></li>
     </ul>
  </div>
 

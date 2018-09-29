@@ -1,0 +1,9 @@
+08_servletjsp
+
+	Multipart
+		writeForm.jsp			      :
+		WriteController.java(write.do) :
+								      : 
+		FileAttach.java			      : file info VO
+		FileRenamePolicy		      : interface
+			* Reference: kr.teamfive.jsp.file (Test01, Test02, Test03, Test04.java) 

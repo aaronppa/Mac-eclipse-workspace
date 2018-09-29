@@ -1,0 +1,7 @@
+04_myBatis
+	
+	Association and Collection
+        Test03.java 	  :
+        Test03.xml  	  :
+        TestMapper3.java  :
+        Board.java		  :
